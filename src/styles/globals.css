@@ -1,23 +1,23 @@
-/* Header CSS */
 
+/* Header CSS */
+ 
 nav #eduNav{
     /* box-shadow: 0px 1px 4px 0px #00000021!important; */
     -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
-        -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
-        box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
-        
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);       
 }
 
 #eduNav {
     box-shadow: 0px 1px 4px 0px #00000021;
 }
-
+/* 
 #eduNav button {
-    padding: 8px 35px;
-}
+    padding: 7px 35px;
+} */
 
 .logoImg {
-    width: 190px;
+    width: 158px;
 }
 
 .userBtn{
@@ -41,6 +41,14 @@ input.searchBar {
     outline: 0;
     box-shadow: none;
 }
+.searchIcon{
+    padding: 10px 6px 10px 12px;
+    background: #F1F1F1;
+    color: #717171;
+    line-height: 10px;
+    font-size: 20px
+}
+
 
 /* Banner CSS */
 
@@ -133,12 +141,17 @@ input.searchBar {
 /* TrendingCourse CSS */
 
 .trendContainer{
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 .trending_heading{
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.trending_heading img {
+    width: 32px;
+    height: 32px;
 }
 
 .trending_heading,h1 {
@@ -148,7 +161,7 @@ input.searchBar {
 .sldr_container{
     padding: 0px 150px;
     width: 100%;
-    margin-top: 20px !important;
+    /* margin-top: 20px !important; */
 }
 
 .img-fluid{
@@ -380,19 +393,19 @@ input.searchBar {
 .freeTC_container{
     margin-top: 40px;
 }
-
+/* 
 #controlled-tab-example1{
     margin-bottom: 50px !important;
-}
+} */
 .freeTC_container .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: rgb(255, 112, 3) !important;
     background-color: var(--bs-nav-tabs-link-active-bg) !important;
     border-color: var(--bs-nav-tabs-link-active-border-color) !important;
     font-weight: 700 !important;
     font-family: "Reddit Sans", sans-serif;
-    font-size: 32px !important;
+    font-size: 24px !important;
     border: none !important;
-    border-bottom: 5px solid rgb(255, 112, 3) !important;
+    border-bottom: 3px solid rgb(255, 112, 3) !important;
     outline: none !important;
 }
 
@@ -401,7 +414,7 @@ input.searchBar {
     border: none !important;
     font-weight: 700 !important;
     font-family: "Reddit Sans", sans-serif;
-    font-size: 32px !important;
+    font-size: 24px !important;
     outline: none !important;
 }
 
@@ -409,16 +422,16 @@ input.searchBar {
     border: none !important;
     color: rgb(152, 152, 152) !important;
     font-weight: 700 !important;
-    font-size: 32px !important;
+    font-size: 24px !important;
     font-family: "Reddit Sans", sans-serif;
 }
 
 .freeTC_container .nav-link.active:hover  {
     color: rgb(255, 112, 3) !important;
     border: none !important;
-    border-bottom: 5px solid rgb(255, 112, 3) !important;
+    border-bottom: 3px solid rgb(255, 112, 3) !important;
     font-weight: 700 !important;
-    font-size: 32px !important;
+    font-size: 24px !important;
     font-family: "Reddit Sans", sans-serif;
 }
 
@@ -653,10 +666,15 @@ input.searchBar {
 
 .slideTitle {
     font-family: "Reddit Sans", sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     color: #2D2D2D;
     text-transform: capitalize;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    height: 36px;
 }
 .free-badge {
     font-size: 12px;
@@ -694,19 +712,19 @@ input.searchBar {
     font-family: "Reddit Sans", sans-serif;
     display: flex;
     align-items: center;
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 5px;
-    gap: 5px;
+    font-size: 10px;
+    padding: 0px 5px;
+    border-radius: 3px;
+    gap: 2px;
 }
 
 .freeCard .courserate .rating svg{
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .freeCard p.review{
-    padding-left: 10px;
-    font-size: 13px;
+    padding-left: 4px;
+    font-size: 12px;
     font-family: "Reddit Sans", sans-serif;
     color: #878787;
 }
@@ -715,16 +733,13 @@ input.searchBar {
     background: #5FB963;
     color: #fff;
     font-family: "Montserrat", sans-serif;
-    font-size: 12px;
+    font-size: 10px;
     border-radius: 20px;
     text-transform: uppercase;
-    /* right: 0px; */
-    /* position: absolute;
-    bottom: 16px; */
-    /* width: 54px; */
-    height: 22px;
-    padding: 2px 15px;
+    padding: 2px 12px;
+    font-weight: 600;
 }
+
 .b-radius{
     border-radius: 10px;
 }
@@ -743,6 +758,12 @@ input.searchBar {
     width: 100%;
 }
 
+.dotted-divider{
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: 1.2px dashed #000;
+}
 
 /* OurProduct CSS */
 
@@ -758,7 +779,7 @@ input.searchBar {
 .heading_prod,h1.main-title {
     font-weight: 700 !important;
     color: #161616;
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .ourProductSection .card{
@@ -839,7 +860,7 @@ input.searchBar {
     transform: scale(1.1);
 }
 
-.ourProImg {
+.prod_slider .ourProImg {
     width: 100%;
     height: 180px;
 }
@@ -874,6 +895,7 @@ input.searchBar {
 .ourProductSection .ourProImg {
     border-radius: 5px;
     border: 0px;
+    height: 214px;
 }
 
 .ourProductSection .card {
@@ -957,14 +979,16 @@ input.searchBar {
 
 .blogTitle {
     font-family:"Reddit Sans",sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: #222831;
 
 }
-.readBtn{
+.readBtn {
     color: #FF7426;
     font-family: "Reddit Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
 }
 .blog-text{
     color: #393E46;
@@ -1318,8 +1342,6 @@ input.searchBar {
 .breadcrumb {
     list-style: none !important;
     display: flex;
-    margin-top: 10px;
-    font-family: "Reddit Sans", sans-serif;
 }
 
 .breadcrumb-item+.breadcrumb-item::before {
@@ -1353,10 +1375,9 @@ input.searchBar {
 }
 
 .courseTitle p{
-    margin: 10px 0px 10px 0px !important;
-    font-weight: 700 !important;
-    font-size: 28px !important;
-    font-family: "Reddit Sans", sans-serif;
+    margin: 40px 0px 20px 0px;
+    font-weight: 800;
+    font-size: 28px;
 }
 
 .courseDuration {
@@ -1391,17 +1412,14 @@ input.searchBar {
 
 .courseDuration .video_icon {
     font-size: 24px;
-    color: rgb(70, 69, 69);
 }
 
 .courseCard {
     position: absolute;
-    right: 80px;
+    right: 120px;
     top: 80px;
     width: 400px;
 }
-
-
 
 .course_imageContainer{
     display: flex;
@@ -1479,7 +1497,7 @@ input.searchBar {
         width: 100%;
     }
     .courseTitle p{
-        /* margin: 40px 0px 20px 0px; */
+        margin: 40px 0px 20px 0px;
         font-weight: 700;
         font-size: 20px;
     }
@@ -1510,7 +1528,7 @@ input.searchBar {
 } 
 @media (min-width: 577px) and (max-width: 768px) {
     .courseTitle p{
-        /* margin: 40px 0px 20px 0px; */
+        margin: 40px 0px 20px 0px;
         font-weight: 700;
         font-size: 20px;
     }
@@ -1545,7 +1563,7 @@ input.searchBar {
 } 
 @media (min-width: 768px) and (max-width: 991px) {
     .courseTitle p{
-        /* margin: 40px 0px 20px 0px; */
+        margin: 40px 0px 20px 0px;
         font-weight: 700;
         font-size: 24px;
     }
@@ -1569,7 +1587,7 @@ input.searchBar {
 } 
 @media (min-width: 992px) {
     .courseTitle p{
-        margin: 0px 0px 0px 0px;
+        margin: 40px 0px 20px 0px;
         font-weight: 700;
         font-size: 24px;
     }
@@ -1598,9 +1616,9 @@ input.searchBar {
 @media (min-width: 1125px) {
     .courseCard {
         position: absolute;
-        right: 20px;
+        right: 120px;
         top: 80px;
-        width: 470px;
+        width: 400px;
     }
 }
 
@@ -1842,21 +1860,21 @@ input.searchBar {
 }
 
 
-/* ViewCourses CSS */
+/* OnlineCourse CSS */
 
 .breadcrumb_container1{
-    padding: 0px 2% 0px 10%;
+    padding: 20px 2% 20px 10%;
 }
 
 .onlineCourseTitle .title{
-    margin: 0px;
+    margin: 40px 0px 20px 0px;
     font-weight: 800;
     font-size: 28px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .onlineCourseTitle .onlineCourseDetail{
-    margin: 0px 0px 0px 0px;
+    margin: 20px 0px 20px 0px;
     font-weight: 400;
     font-size: 18px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -1873,16 +1891,10 @@ input.searchBar {
 
 .button1_share {
     border-radius: 10px;
+    color: #FF7426;
+    border: 1px solid #FF7426;
     background-color: transparent;
     padding: 5px 12px;
-    margin-right: 10px;
-    border: 1px solid#FF7426;
-    background-color: #ff76263b;
-    color: #FF7426;
-}
-
-.share span button{
-    padding: 10px 35px;
 }
 
 .button1_buynow {
@@ -1944,17 +1956,6 @@ p.review  {
 
 .courseDur svg {
     font-size: 16px;
-    margin-top: 2px;
-    /* color: grey !important; */
-}
-.validity{
-    height: 18px;
-}
-
-.validity p{
-    color:  #595959;
-    font-weight: 500;
-    margin-left: 5px;
 }
 
 hr{
@@ -1962,14 +1963,14 @@ hr{
 }
 
 .costPrice{
-    font-size: 20px !important;
-    font-family: "Reddit sans", sans-serif;
+    font-size: 24px !important;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700 !important;
     padding-top: 10px;
 }
 
 .rupeeSign{
-    font-size: 20px !important;
+    font-size: 23px !important;
     padding-bottom: 2px !important;
 }
 
@@ -1998,7 +1999,6 @@ hr{
 
 .onlineCourseButtons button{
     width: 90%;
-    padding: 12px 28px;
 }
 
 
@@ -2062,6 +2062,5 @@ hr{
 
 .onlineCourseButtons1 button{
     width: 100%;
-    /* padding: 12px 35px; */
 }
 
