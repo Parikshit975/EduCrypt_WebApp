@@ -1,0 +1,29 @@
+.pg-tabs-description{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.subjectDetails{
+    margin-left: 10px !important;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
+
+.sub_name {
+    font-weight: 700;
+}
+
+.sub_topics {
+    color: #595959
+}
+
+.videoimage {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 50%;
+}
+
+.videoimage i{
+    width: 20px;
+    font-size: 20px;
+}

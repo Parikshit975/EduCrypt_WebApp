@@ -1,0 +1,70 @@
+.heading_container p{
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.head{
+    font-weight: 700 !important;
+}
+
+.detail_container p{
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.accordion-header{
+    border: 1px solid #fdeae0;
+}
+
+.accordion-header button{
+    background-color: #fffbf9;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--bs-accordion-active-color);
+    background-color: #fffbf9;
+    box-shadow: inset 0 calc(-1* var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+.accordion-body{
+    border: 1px solid #fff1e9;
+}
+
+.accordion-button::after {
+    flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-left: auto;
+    /* content: ""; */
+    background-image: var(--bs-accordion-btn-icon);
+    background-repeat: no-repeat;
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    /* background-color: #fff;
+    border-radius: 50%; */
+    
+}
+
+
+@media (min-width: 320px) and (max-width: 576px) {
+    .detailCourse{
+        margin-top: 10px;
+        font-weight: 300;
+        font-size: 14px !important;
+    }
+
+    .accordion-header button{
+        font-size: 14px !important;
+    }
+
+    .accordion-body{
+        font-size: 14px;
+        text-align: justify;
+    }
+} 
+@media (min-width: 577px) and (max-width: 767px) {} 
+@media (min-width: 768px) and (max-width: 991px) {} 
+@media (min-width: 992px) and (max-width: 1024px) {
+} 
+@media (min-width: 1025px) and (max-width: 1199px) {}

@@ -1,0 +1,50 @@
+.trendStripe {
+    background: #FF7A00;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-transform: capitalize;
+    left: 0px;
+    position: absolute;
+    top: 10px;
+    width: auto;
+    padding: 0px 5px;
+    font-weight: 600;
+}
+
+.trendStripe .card-img-top{
+    border-radius: "10px";
+    transition: .5s ease-in-out;
+}
+
+.trendStripe .card-img-top:hover{
+    transform: scale(1.2);
+}
+
+.tredingSliderSection {
+    transition: .5s ease-in-out;
+}
+
+.tredingSliderSection:hover{
+    transform: scale(1.2);    
+}
+
+.explorebtn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF7A00;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+      );
+    border-radius: 10px;
+    font-size: 24px;
+}

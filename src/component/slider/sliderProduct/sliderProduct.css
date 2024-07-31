@@ -1,0 +1,46 @@
+.ourProductSection{
+    margin: 0 10px;
+}
+
+.ourProductSection .ourProImg {
+    border-radius: 5px;
+    border: 0px;
+}
+
+.ourProductSection .card {
+    transition: .5s ease-in-out;
+}
+
+.ourProductSection .card:hover {
+    transform: scale(1.1);
+}
+
+.ourProductSection .bg_dark svg {
+    border-radius: 50%;
+    padding: 2px;
+    background: #FFFFFFE3;
+    color: #000;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ourtitle{
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    color:#fff;
+}
+
+.ourProductSection .card{
+    border-radius: 5px;
+}
+
+.ourProductSection .bg_dark {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}

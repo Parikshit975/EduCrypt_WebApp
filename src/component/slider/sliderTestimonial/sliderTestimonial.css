@@ -1,0 +1,44 @@
+.card{
+    margin: 10px 20px;
+}
+
+.test-Radius{
+    border-radius: 10px;
+}
+.testImg{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 5px;
+}
+.testTitle{
+    color: #000000;
+    font-size: 14px;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+}
+.test-text{
+    color: #363A3D;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+}
+.cardQuotes {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #FFC27A;
+    font-size: 20px;
+}
+.p-text{
+    color: #363A3D;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+}
+.testi-text{
+    color: #8A8A8A;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;;
+    font-weight: 300;
+}
