@@ -2,7 +2,7 @@ import React from 'react'
 import Button1 from '../buttons/button1/button1'
 import { CiSearch } from "react-icons/ci";
 
-const edulogo = '/assets/images/edulogo.png'
+const edulogo = '/assets/images/eduLogo.png'
 
 const Header = () => {
 
