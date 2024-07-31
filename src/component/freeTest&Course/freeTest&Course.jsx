@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import FreeContent from './freeContent';
-import { freeTestAry } from '../../../public/assets/sampleArry';
+// import { freeTestAry } from '../../../public/assets/sampleArry';
 import { useSelector } from 'react-redux';
 import { isValidData } from '@/utils/helpers';
 
 const Free_Test_Course = () => {
   const [key, setKey] = useState('course');
   const CourseData = useSelector((state) => state.allCategory.allCourse);
-  const freeCourseAry = isValidData(CourseData) && CourseData?.filter((item) => item.mrp == 0)
-  console.log('freeCourseAry', freeCourseAry)
+  const freeCourseAry = isValidData(CourseData) && CourseData?.filter((item) => item.mrp == 0 && item.cat_type == 0)
+  const freeTestAry = isValidData(CourseData) && CourseData?.filter((item) => item.mrp == 0 && item.cat_type == 9)
+  console.log('freeCourseAry', CourseData)
 
 
   return (<>
@@ -24,14 +25,11 @@ const Free_Test_Course = () => {
             className="mb-3 d-flex justify-content-center"
           >
             <Tab eventKey="course" title="Free Courses">
-              {isValidData(freeCourseAry) ? <FreeContent value={freeCourseAry} /> 
-              : 
-              <div className="spinner-border d-flex justify-content-center" role="status" />}
+              {isValidData(freeCourseAry) && <FreeContent value={freeCourseAry} /> 
+              }
             </Tab>
             <Tab eventKey="test" title="Free Test Series">
-              {isValidData(freeTestAry) ? <FreeContent value={freeTestAry} /> 
-              : 
-              <div className="spinner-border d-flex justify-content-center" role="status" />}
+              {isValidData(freeTestAry) && <FreeContent value={freeTestAry} /> }
             </Tab>
           </Tabs>
         </div>

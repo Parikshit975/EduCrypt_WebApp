@@ -372,10 +372,10 @@ input.searchBar {
 
 /* FreeTest&Course CSS */
 
-#controlled-tab-example1-tabpane-course {
+/* #controlled-tab-example1-tabpane-course {
     display: flex;
     justify-content: center;
-}
+} */
 
 .freeTC_container{
     margin-top: 40px;

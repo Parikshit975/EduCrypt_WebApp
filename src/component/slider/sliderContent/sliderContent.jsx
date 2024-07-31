@@ -7,7 +7,7 @@ import { MdOutlineCalendarMonth } from "react-icons/md";
 const SliderContent = ({freeCourse, title}) => {
 
     const router = useRouter()
-    // console.log('freeCourse', freeCourse)
+    console.log('freeCourse111', freeCourse)
 
     const handleExplore = () => {
         console.log("Clicked ==========");

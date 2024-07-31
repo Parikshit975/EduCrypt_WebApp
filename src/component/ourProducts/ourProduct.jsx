@@ -22,7 +22,9 @@ const OurProduct = ({ value, data }) => {
   useEffect(() => {
     const changeWidth = () => {
       setShowSlide(ProdscreenWidth());
-      fetchFaculty();
+      if(value === "faculties"){
+        fetchFaculty();
+      }
     };
 
     if (typeof window !== "undefined") {
@@ -101,7 +103,7 @@ const OurProduct = ({ value, data }) => {
                 </div>
                 <div className="text-center">
                   <p className="faculty_name">{item.username}</p>
-                  <p className="faculty_role">Expirence: {item.experience} years</p>
+                  <p className="faculty_role">{item.experience}</p>
                 </div>
               </div>
             </div>
