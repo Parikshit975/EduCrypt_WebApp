@@ -42,7 +42,7 @@ const SliderContent = ({freeCourse, title}) => {
                         Free
                     </p>
                 </div>
-                <hr />
+                <hr class="dotted-divider" />
                 {/* <button className="btn exploreBtn">Explore now</button> */}
                 <div className="courseBtn">
                     <Button1 value = "Explore" handleClick = {handleExplore} />

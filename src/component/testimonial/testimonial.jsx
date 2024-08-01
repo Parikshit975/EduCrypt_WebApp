@@ -13,7 +13,9 @@ import { getTestimonialService } from '@/services';
 const Testimonial = () => {
     const [showSlide, setShowSlide] = useState(3);
     const [isLoading, setIsLoading] = useState(false);
-    const [testimonial_Ary1, settestimonial_Ary1] = useState('')
+    const [testimonial_Ary1, settestimonial_Ary1] = useState('');
+    const [length, setLength] = useState(0);
+    
 
     useEffect(() => {
         setTimeout(() => {
@@ -37,7 +39,7 @@ const Testimonial = () => {
 
     const settings = {
         className: "center",
-        centerMode: true,
+        centerMode: length > 3 ? true : false,
         infinite: true,
         dots: true,
         centerPadding: "0px",
@@ -55,6 +57,7 @@ const Testimonial = () => {
         if(testimonial_service_Data.status){
             console.log('testimonal response', testimonial_service_Data.data.testimonial)
             settestimonial_Ary1(testimonial_service_Data.data.testimonial)
+            setLength(testimonial_service_Data.data.testimonial.length)
         }
     }
 

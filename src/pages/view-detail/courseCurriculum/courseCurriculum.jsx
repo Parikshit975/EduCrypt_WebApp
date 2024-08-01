@@ -5,7 +5,7 @@ import { topic_Ary } from "../../../../public/assets/sampleArry";
 import { video_Ary } from "../../../../public/assets/sampleArry";
 import Button1 from "../../../component/buttons/button1/button1";
 import { FaPlayCircle } from "react-icons/fa";
-// import VideoTab from "../videoTab/videoTab";
+import { IoLockClosed } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
 
 const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
@@ -171,17 +171,17 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
                         <div className="btnsalltbba text-center">
                           {" "}
                           {/* {(isLogin && item.is_locked == "0") || */}
-                          {0 == "0" || is_purchased == "1" ? (
+                          {(value.mrp == 0 ) || (value.mrp != 0 && is_purchased == "1") ? (
                             <>
                               <Button1
                                 value="Watch Now"
                                 handleClick={handleWatch}
                               />
-                              {/* <button className="watchNow">Watch Now</button> */}
                             </>
                           ) : (
-                            // <i className="fa fa-angle-right" aria-hidden="true"></i>
-                            <img src={lock_icon} />
+                            <span className="videoimage text-center">
+                              <IoLockClosed />
+                            </span>
                           )}{" "}
                         </div>
                       </div>
@@ -248,10 +248,10 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
           })
         ) : (
           showLayer == "layer1" &&
-          //   layer1Data &&
-          //   layer1Data?.meta?.list?.map((item, i) => {
-          layer1Data &&
-          layer1Data.map((item, i) => {
+            layer1Data &&
+            layer1Data?.meta?.list?.map((item, i) => {
+            // subject_Ary &&
+            // subject_Ary.map((item, i) => {
             return (
               <div
                 className=" pg-tabs-description mt-3"

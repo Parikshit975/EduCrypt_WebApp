@@ -11,32 +11,33 @@ const content_title = "Selection Hi Jawab Hai Something Special For VCAINS"
 
 const Card3 = ({value}) => {
 
-    const Router = useRouter()
+    const router = useRouter()
     // console.log('value', value)
 
     const handleExplore = () => {
-        // Router.push(`/view-courses/details/${value.id}`);
+        router.push(`/view-courses/details/${value.id}`);
     }
 
     const handleBuy = () => {
-
+        router.push(`/view-courses/course-order/${value.id}`)
     }
 
   return (
-        <div className="card border-0 shadow b-radius mb-3 p-2 course_card1 m-3">
+        <div className="card border-0 shadow b-radius mb-3 p-2 freeCard m-3">
             {value.desc_header_image && <img style={{borderRadius: "10px"}} src={value.desc_header_image} className="card-img-top" alt="..." />}
             {/* <div className="m-0 free-badge">FREE</div> */}
             <div className="card-body pt-3 px-0 pb-0">
-                <h6 className="mb-2 slideTitle">
+                <h6 className="m-0 slideTitle">
                     {value.title}
                 </h6>
                 <div className="courserate">
-                    <div className="courseRating">
-                        <span className="rating"><IoStar /> {4.1}</span>
+                    <div className="d-flex align-items-center">
+                        <span className="rating">
+                            <IoStar /> {4.1}
+                        </span>
+                        <p className="m-0 review">{166} reviews</p>
                     </div>
-                    <div className="courseReview">
-                        <span className="review"><p>{165} reviews</p></span>
-                    </div>
+                    {value.mrp == 0 && <p className="m-0 freeStripe">Free</p>}
                 </div>
                 {value.mrp != 0 && <>
                 <div className="courseDur">
@@ -44,7 +45,9 @@ const Card3 = ({value}) => {
                         <span className='validity'><MdOutlineCalendarMonth /> Validity: {`${value.validity}`}</span>
                     </div>
                 </div>
-                <hr />
+                </>}
+                <hr class="dotted-divider" />
+                {value.mrp != 0 && <>
                 <div className="coursePriceContainer">
                     <div className="coursePrice d-flex align-items-center pb-2 m-0">
                         <div className='Price'>

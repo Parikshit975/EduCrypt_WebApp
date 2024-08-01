@@ -11,10 +11,10 @@ nav #eduNav{
 #eduNav {
     box-shadow: 0px 1px 4px 0px #00000021;
 }
-/* 
+
 #eduNav button {
     padding: 7px 35px;
-} */
+} 
 
 .logoImg {
     width: 158px;
@@ -1336,6 +1336,7 @@ input.searchBar {
 }
 
 .breadcrumb_container{
+    font-family: "Reddit Sans", sans-serif;
     padding: 20px 10%;
 }
 
@@ -1897,6 +1898,11 @@ input.searchBar {
     padding: 5px 12px;
 }
 
+.share .button1_userBtn__SWuni {
+    padding: 14px 36px;
+    margin: 0px 10px !important;
+}
+
 .button1_buynow {
     color: #fff;
     background: #FF7426;
@@ -1913,8 +1919,12 @@ input.searchBar {
     transition: .5s ease-in-out;
 }
 
+.course_card img {
+    height: 200px;
+}
+
 .course_card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .course_card .slideTitle{
@@ -1963,14 +1973,14 @@ hr{
 }
 
 .costPrice{
-    font-size: 24px !important;
+    font-size: 20px !important;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700 !important;
     padding-top: 10px;
 }
 
 .rupeeSign{
-    font-size: 23px !important;
+    font-size: 20px !important;
     padding-bottom: 2px !important;
 }
 
@@ -2032,6 +2042,11 @@ hr{
     transition: .5s ease-in-out;
 }
 
+.course_card1 img{
+    width: 100%;
+    height: 200px;
+}
+
 .course_card1:hover {
     transform: scale(1.1);
 }
@@ -2062,5 +2077,26 @@ hr{
 
 .onlineCourseButtons1 button{
     width: 100%;
+}
+
+
+/* CourseOrder CSS */
+
+.orderContainer .orderTitle {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 10px;
+    padding: 10px 2px;
+    font-family: "Reddit Sans", sans-serif;
+    font-weight: 700;
+}
+
+.orderContainer thead {
+    background: #eaeaea;
+    width: 100%;
+    padding: 0px 80px;
+}
+
+.orderTitle button {
+    padding: 10px 25px !important;
 }
 

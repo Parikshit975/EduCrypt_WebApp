@@ -21,7 +21,7 @@ const index = () => {
     setTimeout(() => {
       fetchContentData();
       fetchCourseData();
-    }, 500);
+    }, 1500);
   }, [])
   
 

@@ -11,15 +11,18 @@ const content_title = "Selection Hi Jawab Hai Something Special For VCAINS"
 
 const Card1 = ({value}) => {
 
-    const Router = useRouter()
+    const router = useRouter()
 
     const handleExplore = () => {
-        Router.push(`/view-courses/details/${value.id}`);
+        router.push(`/view-courses/details/${value.id}`);
+    }
+
+    const handleBuy = () => {
+        router.push(`/view-courses/course-order/${value.id}`);
     }
   return (
-        
-            <div className="col-md-3">
-                <div className="card border-0 shadow b-radius mb-3 p-2 course_card m-4">
+            <div className="col-md-3 p-0">
+                <div className="card border-0 shadow b-radius mb-3 mt-2 p-2 course_card m-0">
                     {value.cover_image && <img style={{borderRadius: "10px"}} src={value.cover_image} className="card-img-top" alt="..." />}
                     {/* <div className="m-0 free-badge">FREE</div> */}
                     <div className="card-body pt-3 px-0 pb-0">
@@ -32,16 +35,17 @@ const Card1 = ({value}) => {
                                     <span className="rating"><IoStar /> {4.1}</span>
                                 </div>
                                 <div className="courseReview">
-                                    <span className="review"><p>{165} reviews</p></span>
+                                    <span className="review"><p className='mb-1'>{165} reviews</p></span>
                                 </div>
                             </div>
                         </div>
                         <span className="courseDur">
                             <span className="courseValidity">
-                                <span className='validity d-flex'><MdOutlineCalendarMonth /> Validity: <p>{`${value.validity}`}</p></span>
+                                <span className='validity d-flex'><MdOutlineCalendarMonth /> Validity: <p className='m-0'>{`${value.validity}`}</p></span>
                             </span>
                         </span>
-                        <hr />
+                        <hr class="dotted-divider" />
+                        {value.mrp != 0 && 
                         <div className="coursePriceContainer">
                             <div className="coursePrice d-flex align-items-center pb-2 m-0">
                                 <div className='Price'>
@@ -61,10 +65,17 @@ const Card1 = ({value}) => {
                                 }
                             </div>
                         </div>
+                        }
+                        {value.mrp == 0 ? 
+                        <div className="courseBtn">
+                            <Button1 value = "Explore" handleClick = {handleExplore} />
+                        </div> 
+                        :
                         <div className="d-flex justify-content-between onlineCourseButtons">
                             <Button2 value = "Explore" handleClick = {handleExplore} />
-                            <Button1 value = "Buy Now" handleClick = {handleExplore} />
+                            <Button1 value = "Buy Now" handleClick = {handleBuy} />
                         </div>
+                        }
                     </div>
                 </div>
             </div>

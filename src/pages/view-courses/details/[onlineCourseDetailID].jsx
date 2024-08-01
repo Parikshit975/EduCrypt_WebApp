@@ -52,7 +52,7 @@ const ViewOnlineCourseDetail = () => {
       response_getCourseDetail_service.data,
       token
     );
-    console.log('get_courseDetail', response_getCourseDetail_data);
+    console.log("get_courseDetail", response_getCourseDetail_data);
     if (response_getCourseDetail_data.status) {
       setOnlineCourseAry(response_getCourseDetail_data.data.course_detail);
       setRelateCourseAry(
@@ -89,18 +89,21 @@ const ViewOnlineCourseDetail = () => {
                 >
                   Home
                 </li>
-                {onlineCourseAry.mrp != 0 &&
-                <li className="breadcrumb-item" onClick={() => router.back()}>
-                  Online Courses
-                </li>
-                }
+                {onlineCourseAry.mrp != 0 && (
+                  <li className="breadcrumb-item" onClick={() => router.back()}>
+                    Online Courses
+                  </li>
+                )}
                 <li className="breadcrumb-item active">Details</li>
               </ol>
             </nav>
             <div className="courseTitle">
               <p>{onlineCourseAry?.title}</p>
             </div>
-            <div className="courseDuration" style={{color: 'black', fontWeight: 500}}>
+            <div
+              className="courseDuration"
+              style={{ color: "black", fontWeight: 500 }}
+            >
               <p>
                 <span>
                   <LiaYoutube className="video_icon" />
@@ -113,14 +116,15 @@ const ViewOnlineCourseDetail = () => {
                 </span>{" "}
                 120 PDF's
               </p>
-              {onlineCourseAry.mrp != 0 && onlineCourseAry.validity != "0 Days" && (
-                <p>
-                  <span>
-                    <IoDocumentTextOutline className="video_icon" />
-                  </span>{" "}
-                  Validity: {`${onlineCourseAry.validity}`}
-                </p>
-              )}
+              {onlineCourseAry.mrp != 0 &&
+                onlineCourseAry.validity != "0 Days" && (
+                  <p>
+                    <span>
+                      <IoDocumentTextOutline className="video_icon" />
+                    </span>{" "}
+                    Validity: {`${onlineCourseAry.validity}`}
+                  </p>
+                )}
             </div>
             <div className="d-flex mb-2 freeCourserate">
               <div className="">
@@ -130,42 +134,46 @@ const ViewOnlineCourseDetail = () => {
               </div>
               <div className="freeCourseReview">
                 <span className="review">
-                  <p style={{marginLeft: '5px'}}>{165} Reviews</p>
+                  <p style={{ marginLeft: "5px" }}>{165} Reviews</p>
                 </span>
               </div>
             </div>
-            {onlineCourseAry.mrp != 0 &&
-            <div className="d-flex button_price">
-              <div className="share d-flex">
-                <button className="button1_share"><FaShare /></button>
-                <span>
-                  <Button1 value = {"Buy Now"} />
-                </span>
+            {onlineCourseAry.mrp != 0 && (
+              <div className="d-flex button_price">
+                <div className="share d-flex">
+                  <button className="button1_share">
+                    <FaShare />
+                  </button>
+                  <span>
+                    <Button1
+                      value={"Buy Now"}
+                      handleClick={() =>
+                        router.push(
+                          `/view-courses/course-order/${onlineCourseAry.id}`
+                        )
+                      }
+                    />
+                  </span>
+                </div>
+                <div className="">
+                  <p className="m-0">
+                    <FaRupeeSign className="rupeeSign" />
+                    <span className="costPrice">
+                      {onlineCourseAry.course_sp}
+                    </span>
+                    <span>
+                      <FaRupeeSign className="rupeeSign2" />
+                      {onlineCourseAry.mrp}
+                    </span>
+                  </p>
+                  <p className="m-0 text-success">Exclusive of GST </p>
+                </div>
               </div>
-              {/* <button className="m-2 button1_buynow ">Buy Now</button>
-              <div className="coursePriceContainer">
-                    <div className="coursePrice d-flex align-items-center pb-2 m-0">
-                        <div className='Price'>
-                            <FaRupeeSign className='rupeeSign' /><span className='costPrice'>{onlineCourseAry.course_sp}</span>
-                        </div>
-                        {onlineCourseAry.course_sp !== onlineCourseAry.mrp &&
-                            <>
-                            <div className='offPriceContainer'>
-                                <div className='offPrice'>
-                                </div>
-                                <FaRupeeSign className='rupeeSign2' />{onlineCourseAry.mrp}
-                            </div>
-                            <div className='offPricePercentage'>
-                                {onlineCourseAry.discount && `(${onlineCourseAry.discount}% Off)`}
-                            </div>
-                            </>
-                        }
-                    </div>
-                </div> */}
-            </div>
-            }
+            )}
             <div className="courseCard">
-              <Card3 value={onlineCourseAry} />
+              <Card3
+                value={onlineCourseAry}
+              />
             </div>
           </div>
           <div className="col-5 course_imageContainer">
@@ -196,7 +204,7 @@ const ViewOnlineCourseDetail = () => {
                       propsValue={
                         isValidData(relateCourseAry) && relateCourseAry
                       }
-                      relateCourseAry = {relateCourseAry}
+                      relateCourseAry={relateCourseAry}
                     />
                   )}
                   {item === "Course Curriculum" && (
