@@ -8,7 +8,7 @@ const SliderTrend = ({value}) => {
   const [showBtn, setShowBtn] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const router = useRouter()
-  console.log('props11111', value)
+  // console.log('props11111', value)
 
   useEffect(() => {
     setIsClient(true);

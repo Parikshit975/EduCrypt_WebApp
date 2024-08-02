@@ -11,7 +11,7 @@ const Free_Test_Course = () => {
   const CourseData = useSelector((state) => state.allCategory.allCourse);
   const freeCourseAry = isValidData(CourseData) && CourseData?.filter((item) => item.mrp == 0 && item.cat_type == 0)
   const freeTestAry = isValidData(CourseData) && CourseData?.filter((item) => item.mrp == 0 && item.cat_type == 9)
-  console.log('freeCourseAry', CourseData)
+  // console.log('freeCourseAry', CourseData)
 
 
   return (<>
@@ -25,11 +25,11 @@ const Free_Test_Course = () => {
             className="mb-3 d-flex justify-content-center"
           >
             <Tab eventKey="course" title="Free Courses">
-              {isValidData(freeCourseAry) && <FreeContent value={freeCourseAry} /> 
+              {isValidData(freeCourseAry) && <FreeContent value={freeCourseAry} title = {"course"} /> 
               }
             </Tab>
             <Tab eventKey="test" title="Free Test Series">
-              {isValidData(freeTestAry) && <FreeContent value={freeTestAry} /> }
+              {isValidData(freeTestAry) && <FreeContent value={freeTestAry} title= {"test"} /> }
             </Tab>
           </Tabs>
         </div>

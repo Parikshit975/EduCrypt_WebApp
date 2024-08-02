@@ -1,10 +1,13 @@
 import React from 'react'
 import Button1 from '../buttons/button1/button1'
 import { CiSearch } from "react-icons/ci";
+import { useRouter } from 'next/router';
 
 const edulogo = '/assets/images/eduLogo.png'
 
 const Header = () => {
+
+  const router = useRouter()
 
   // const isBrowser = typeof window !== "undefined";
 
@@ -13,7 +16,7 @@ const Header = () => {
       <nav className="px-0 px-sm-5 px-md-5 navbar navbar-expand bg-white" id="eduNav">
           <div className="container-fluid">
               <a className="m-0" href="#">
-                  {edulogo && <img className="logoImg" src={edulogo} alt="" />}
+                  {edulogo && <img className="logoImg" src={edulogo} alt="" onClick={() => router.push('/')} />}
               </a>
               <div className="input-group ms-3 search">
                   <span className="searchIcon d-none d-md-block input-group-text border-0" id="basic-addon1">

@@ -8,10 +8,10 @@ import Blogs from '@/component/blogs/blogs'
 import Testimonial from '@/component/testimonial/testimonial'
 import GetInTouch from '@/component/getInTouch/getInTouch'
 import Footer from '@/component/footer/footer'
-import { getCourse_Catergory_Service, getCourse_service } from '@/services'
+import { getCourse_Catergory_Service, getCourse_service, getCurrentAffair_service } from '@/services'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrypt, get_token, encrypt } from '@/utils/helpers'
-import { all_CategoryAction, all_CourseAction } from '@/store/sliceContainer/masterContentSlice'
+import { all_CategoryAction, all_CourseAction, all_CurrentAffair } from '@/store/sliceContainer/masterContentSlice'
 
 const index = () => {
   const dispatch = useDispatch();
@@ -21,6 +21,7 @@ const index = () => {
     setTimeout(() => {
       fetchContentData();
       fetchCourseData();
+      fetchCurrentAffair();
     }, 1500);
   }, [])
   
@@ -30,7 +31,7 @@ const index = () => {
     const formData = new FormData();
     const response_content_service = await getCourse_Catergory_Service(formData);
     const content_service_Data = decrypt(response_content_service.data, token)
-    console.log('bannerResponse', content_service_Data)
+    // console.log('bannerResponse', content_service_Data)
     if(content_service_Data.status){
       dispatch(all_CategoryAction(content_service_Data.data))
     }
@@ -47,7 +48,17 @@ const index = () => {
     const response_getCourse_data = decrypt(response_getCourse_service.data, token)
     if(response_getCourse_data.status){
       dispatch(all_CourseAction(response_getCourse_data.data))
-      console.log('course', response_getCourse_data)
+      // console.log('course', response_getCourse_data)
+    }
+  }
+
+  const fetchCurrentAffair = async () => {
+    const formData = {}
+    const response_getCurrentAffairs_service = await getCurrentAffair_service(encrypt(JSON.stringify(formData), token))
+    const response_getCurrentAffairs_data = decrypt(response_getCurrentAffairs_service.data, token);
+    console.log('response_getCurrentAffairs_data', response_getCurrentAffairs_data)
+    if(response_getCurrentAffairs_data.status){
+      dispatch(all_CurrentAffair(response_getCurrentAffairs_data.data))
     }
   }
   

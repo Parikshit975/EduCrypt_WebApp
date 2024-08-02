@@ -17,6 +17,7 @@ const OnlineCourse = () => {
   const resetCourseCurriculumLayerRef = useRef();
   const Router = useRouter();
   const { onlineCourseID } = Router.query;
+  // localStorage.setItem()
 
   useEffect(() => {
     if (onlineCourseID) {

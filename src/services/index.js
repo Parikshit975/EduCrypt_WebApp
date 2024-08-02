@@ -16,6 +16,17 @@ const CourseUrl = 'course/';
 export const getCourse_service = async (params) => await axiosClient.post(CourseUrl + 'get_courses', params)
 export const getCourseDetail_Service = async (params) => await axiosClient.post('course_deprecated/get_course_detail' ,params)
 
+
+// Coupons
+
+const CouponUrl = 'coupon/';
+export const getCoupon_service = async (params) => await axiosClient.post(CouponUrl + 'get_coupon_over_course' , params)
+
+// Current Affairs
+
+const currentAffairUrl = 'current_affairs/';
+export const getCurrentAffair_service = async (params) => await axiosClient.post(currentAffairUrl + 'current_affair_list', params)
+
 // Faculties
 
 const facultyUrl = 'educators/';

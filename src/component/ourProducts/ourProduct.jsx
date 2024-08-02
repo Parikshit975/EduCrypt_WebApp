@@ -16,7 +16,7 @@ const OurProduct = ({ value, data }) => {
   const prod_Ary = useSelector((state) => state.allCategory.allCategory.course_type_master)
   const status = isValidData(prod_Ary)
   const [facultyAry, setfacultyAry] = useState('')
-  console.log('prod_Ary', prod_Ary)
+  // console.log('prod_Ary', prod_Ary)
 
 
   useEffect(() => {

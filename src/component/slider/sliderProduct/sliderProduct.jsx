@@ -7,7 +7,7 @@ const prod_image1 = '/assets/images/product1.png';
 const SliderProduct = ({value}) => {
 
   const Router = useRouter();
-  console.log('props', value)
+  // console.log('props', value)
 
   if(value) {
     return (

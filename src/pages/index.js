@@ -18,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     const url = window.location.href;
-    console.log(url);
+    // console.log(url);
     const tenantName = url.split(".local")[0];
   }, []);
 

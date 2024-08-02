@@ -100,12 +100,13 @@ export const TestScreenWidth = () => {
 
 
 export function isValidData(response) {
+    // console.log(response)
     if (Array.isArray(response)) {
       return response.length > 0 ? response : false;
     }
   
     // Handle empty object or empty string cases
-    if (response === '{}' || response === '{}' || response === '') {
+    if (response === '{}' || response === '[]' || response === '') {
       return false;
     }
   

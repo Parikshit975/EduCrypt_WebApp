@@ -13,6 +13,8 @@ const FreeContent = ({value, title, onlineCourseDetailID}) => {
   const [data, setData] = useState(value);
   const router = useRouter();
 
+  // console.log('title', title)
+
   useEffect(() => {
     const changeWidth = () => {
       setShowSlide(ScreenWidth());

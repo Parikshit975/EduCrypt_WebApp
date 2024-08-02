@@ -1,6 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html, body{
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
 
 /* Header CSS */
- 
+
+.freeTC_container .slick-next,
+.freeTC_container .slick-prev, 
+.sldr_container .slick-prev,
+.sldr_container .slick-next,
+.prod_slider .slick-next,
+.prod_slider .slick-prev,
+.test_container .slick-next,
+.test_container .slick-prev{
+    height: 30px !important;
+    width: 30px !important;
+    padding: 5px;
+    box-shadow: 0px 7px 28px 0px #00000021;
+}
+
 nav #eduNav{
     /* box-shadow: 0px 1px 4px 0px #00000021!important; */
     -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
@@ -12,9 +35,18 @@ nav #eduNav{
     box-shadow: 0px 1px 4px 0px #00000021;
 }
 
+#eduNav ul.navbar-nav{
+    margin-bottom: 0px!important;
+}
+
+/* 
 #eduNav button {
     padding: 7px 35px;
-} 
+} */
+
+#eduNav .navbar-collapse{
+    width: 100%;
+}
 
 .logoImg {
     width: 158px;
@@ -99,13 +131,19 @@ input.searchBar {
         height: 200px;
     }
 } 
+@media(max-width: 992px) {
 
+    .footerBottom {
+        padding: 20px 10px !important;
+    }
+}
 @media (min-width: 768px) and (max-width: 992px) {
+
     .owl-carousel .carousel-indicators{
         bottom: -30%;
     }
     .banner_img img{
-        height: 200px;
+        height: 168px;
     }
 }
 
@@ -114,7 +152,7 @@ input.searchBar {
         bottom: -40%;
     }
     .banner_img img{
-        height: 150px;
+        height: 100px;
     }
 }
 
@@ -123,7 +161,7 @@ input.searchBar {
         bottom: -43%;
     }
     .banner_img img{
-        height: 150px;
+        height: 120px;
     }
 }
 
@@ -133,7 +171,7 @@ input.searchBar {
         bottom: -45px;
     }
     .banner_img img{
-        height: 100px;
+        height: 66px;
     }
 }
 
@@ -860,7 +898,7 @@ input.searchBar {
     transform: scale(1.1);
 }
 
-.prod_slider .ourProImg {
+.ourProImg {
     width: 100%;
     height: 180px;
 }
@@ -895,7 +933,7 @@ input.searchBar {
 .ourProductSection .ourProImg {
     border-radius: 5px;
     border: 0px;
-    height: 214px;
+    height: 200px;
 }
 
 .ourProductSection .card {
@@ -924,6 +962,11 @@ input.searchBar {
     font-size: 12px;
     font-family: "Poppins", sans-serif;
     color:#fff;
+    /* -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    height: 32px; */
 }
 
 .ourProductSection svg:hover {
@@ -964,6 +1007,7 @@ input.searchBar {
     width: 100%;
     border-radius: 10px;
     transition: .5s ease-in-out;
+    height: 215px;
 }
 
 .blogImg:hover {
@@ -982,7 +1026,11 @@ input.searchBar {
     font-size: 16px;
     font-weight: 600;
     color: #222831;
-
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    height: 38px;
 }
 .readBtn {
     color: #FF7426;
@@ -1011,7 +1059,7 @@ input.searchBar {
 /* Testimonial CSS */
 
 .test_container{
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .testimonial_heading{
@@ -1118,9 +1166,9 @@ input.searchBar {
 
 /* SliderTestimonial CSS */
 
-.card{
+/* .card{
     margin: 10px 20px;
-}
+} */
 
 .test-Radius{
     border-radius: 10px;
@@ -1156,6 +1204,11 @@ input.searchBar {
     font-family: "Reddit Sans", sans-serif;
     font-weight: 400;
     font-size: 12px;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    height: 75px;
 }
 .testi-text{
     color: #8A8A8A;
@@ -1336,7 +1389,6 @@ input.searchBar {
 }
 
 .breadcrumb_container{
-    font-family: "Reddit Sans", sans-serif;
     padding: 20px 10%;
 }
 
@@ -1898,11 +1950,6 @@ input.searchBar {
     padding: 5px 12px;
 }
 
-.share .button1_userBtn__SWuni {
-    padding: 14px 36px;
-    margin: 0px 10px !important;
-}
-
 .button1_buynow {
     color: #fff;
     background: #FF7426;
@@ -1919,12 +1966,8 @@ input.searchBar {
     transition: .5s ease-in-out;
 }
 
-.course_card img {
-    height: 200px;
-}
-
 .course_card:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .course_card .slideTitle{
@@ -1973,14 +2016,14 @@ hr{
 }
 
 .costPrice{
-    font-size: 20px !important;
+    font-size: 24px !important;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700 !important;
     padding-top: 10px;
 }
 
 .rupeeSign{
-    font-size: 20px !important;
+    font-size: 23px !important;
     padding-bottom: 2px !important;
 }
 
@@ -2042,11 +2085,6 @@ hr{
     transition: .5s ease-in-out;
 }
 
-.course_card1 img{
-    width: 100%;
-    height: 200px;
-}
-
 .course_card1:hover {
     transform: scale(1.1);
 }
@@ -2080,6 +2118,128 @@ hr{
 }
 
 
+/* ======================== Achievement section starts =========== */
+    .card_group{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .achieve-text{
+        color: #474747;
+        font-size: 12px;
+        font-family: "Reddit Sans", sans-serif;
+        font-weight: 400 !important;
+    }
+    .card_group .card img{
+        width: 30px;
+        /* height: 30px; */
+    }
+    /* .slick-next {
+        right: -16px!important;
+    }
+    .slick-prev{
+        left: -7px!important;
+    } */
+    .instruct-card, .video-card,
+    .users-card,.students-card{
+        padding: 10px;
+        width: 268px;
+        border-radius: 10px;
+    }
+    .instruct-card{
+        border: 1px solid #1918251A!important;
+        background: #F0F6FF;
+    }
+    .video-card{
+        border: 1px solid #1918251A!important;
+        background: #EFFFF1;
+    }
+    .users-card{
+        border: 1px solid #1918251A!important;
+        background: #FFF3EF;
+    }
+    .students-card{
+        border: 1px solid #1918251A!important;
+        background: #EAF4FF;
+    }
+    .inst-count,.video-count,
+    .user-count, .student-count{
+        font-family: "Reddit Sans", sans-serif;
+        font-weight: 800;
+        font-size: 30px;
+    }
+    .inst-count {
+        color: #1D3CB0;
+    }
+    .video-count {
+        color: #3B9A47;
+    }
+    .user-count{
+        color: #FF5722;
+    }
+    .student-count{
+        color: #0075FD;
+    }
+    .card-content {
+        margin-top: -13px;
+    }
+    .c_title{
+        color: #161616;
+        font-family: "Reddit Sans", sans-serif;
+        font-size: 14px;
+    }
+/* ======================== Achievement section ends =========== */
+
+
+
+
+/* =========================== Bottom footer starts ============== */
+
+.footerBottom{
+    width: 100%;
+    padding: 10px 120px;
+    border-top: 1px solid #525C6C
+}
+.foot-social{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.foot-social .social-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #39465B;
+    color: #fff;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+.foot-social .social-icon:hover{
+    background: #FF7426;
+}
+.copyrighttitle {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Reddit Sans", sans-serif;
+}
+
+
+/* =========================== Bottom footer ends ============== */
+
+@media (min-width: 992px) and (max-width: 1260px) {
+
+    .instruct-card,.video-card,
+    .users-card,.students-card {
+        width: 200px !important;
+    }
+
+}
+
+
 /* CourseOrder CSS */
 
 .orderContainer .orderTitle {
@@ -2091,12 +2251,73 @@ hr{
 }
 
 .orderContainer thead {
-    background: #eaeaea;
+    border: 1px solid #E4E7E9;
+    background-color: #F2F4F5;
+    font-family: "Reddit Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
     width: 100%;
-    padding: 0px 80px;
+    padding: 5px 45px;
 }
 
-.orderTitle button {
-    padding: 10px 25px !important;
+.orderTitle p {
+    font-family: "Reddit Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
 }
+
+.orderButton {
+    padding: 0px 10px;
+}
+
+.orderButton  button {
+    padding: 10px 35px !important;
+    width: 95%;
+}
+
+.orderButton .oneTime button {
+    padding: 10px 18px !important;
+}
+
+.orderTitle input{
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 5px;
+    color: #77878F;
+    outline: none;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: "Reddit Sans", sans-serif;
+    padding: 10px;
+    width: 230px
+}
+
+.applyBtn button{
+    border-radius: 0px;
+    background-color: #fff;
+    padding: 10px 35%;
+    margin-left: 10px !important
+}
+
+.totalData{
+    font-size: 12px;
+    color: #77878F;
+    font-family: "Reddit Sans", sans-serif;
+    font-weight: 500;
+}
+
+.totalData .t_price{
+    color: #191C1F;
+}
+
+.totalData .price_total{
+    color: #191C1F;
+}
+
+.checkOutBtn button{
+    width: 100%;
+    padding: 10px 10%;
+}
+
 

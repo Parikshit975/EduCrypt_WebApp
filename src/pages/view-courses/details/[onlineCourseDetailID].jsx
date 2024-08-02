@@ -25,7 +25,7 @@ const ViewOnlineCourseDetail = () => {
   const [onlineCourseAry, setOnlineCourseAry] = useState("");
   const [relateCourseAry, setRelateCourseAry] = useState("");
   const [pdfData, setPdfData] = useState("");
-  const [videoData, setVideData] = useState("");
+  const [videoData, setVideoData] = useState("");
 
   const resetPdfLayerRef = useRef();
   const resetCourseCurriculumLayerRef = useRef();
@@ -161,12 +161,12 @@ const ViewOnlineCourseDetail = () => {
                     <span className="costPrice">
                       {onlineCourseAry.course_sp}
                     </span>
-                    <span>
+                    <span style={{color: '#A8A8A8'}}>
                       <FaRupeeSign className="rupeeSign2" />
                       {onlineCourseAry.mrp}
                     </span>
                   </p>
-                  <p className="m-0 text-success">Exclusive of GST </p>
+                  <p className="m-0 text-success">{onlineCourseAry.is_gst == 0 ? 'Inclusive of GST' : 'Exclusive of GST'}  </p>
                 </div>
               </div>
             )}
@@ -195,7 +195,7 @@ const ViewOnlineCourseDetail = () => {
                   eventKey={item}
                   title={item}
                   key={item}
-                  propsValue={onlineCourseAry.tiles}
+                  propsValue={isValidData(onlineCourseAry) && onlineCourseAry.tiles}
                 >
                   {item === "Course Detail" && (
                     <CourseDetail

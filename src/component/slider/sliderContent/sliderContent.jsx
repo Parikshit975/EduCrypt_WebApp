@@ -7,16 +7,18 @@ import { MdOutlineCalendarMonth } from "react-icons/md";
 const SliderContent = ({freeCourse, title}) => {
 
     const router = useRouter()
-    console.log('freeCourse111', freeCourse)
+    // console.log('title111', title)
 
     const handleExplore = () => {
         console.log("Clicked ==========");
-        router.push(`/view-courses/details/${freeCourse.id}`);
-        // navigate('/viewDetail/422')
-        // location.reload()
+        if(title == 'course') {
+            router.push(`/view-courses/details/${freeCourse.id}`);
+        }
+        else if(title == 'test'){
+            router.push(`/test-series/details/${freeCourse.id}`);
+        }
     }
-    // const content_image = props.value.image;
-    // const content_title = props.value.title;
+
 
     
     if(freeCourse) {

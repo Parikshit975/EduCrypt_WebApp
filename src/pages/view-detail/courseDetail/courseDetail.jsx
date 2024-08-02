@@ -246,6 +246,7 @@ const CourseDetail = ({ value, propsValue, title, relateCourseAry }) => {
         </div>
       </section>
       <section className="py-4 page-section-6">
+        {console.log('prop', propsValue)}
         {isValidData(propsValue) && 
           <div className="container">
               <div className="row">
@@ -256,7 +257,7 @@ const CourseDetail = ({ value, propsValue, title, relateCourseAry }) => {
                   <div className="smallline mx-auto mb-3"></div>
                   </div>
                   <div className="mt-4">
-                      <FreeContent value={relateCourseAry} title="Related Course" />
+                      <FreeContent value={isValidData(relateCourseAry) && relateCourseAry} title="Related Course" />
                   </div>
               </div>
           </div>
