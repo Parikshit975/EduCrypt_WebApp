@@ -12,6 +12,7 @@ import { getCourse_Catergory_Service, getCourse_service, getCurrentAffair_servic
 import { useSelector, useDispatch } from 'react-redux'
 import { decrypt, get_token, encrypt } from '@/utils/helpers'
 import { all_CategoryAction, all_CourseAction, all_CurrentAffair } from '@/store/sliceContainer/masterContentSlice'
+import Achievement from '@/component/achievement/achievement'
 
 const index = () => {
   const dispatch = useDispatch();
@@ -69,6 +70,7 @@ const index = () => {
         <TrendingCourses />
         <Free_Test_Course />
         <OurProduct value = "product" />
+        <Achievement />
         <Blogs />
         <Testimonial />
         <GetInTouch />
