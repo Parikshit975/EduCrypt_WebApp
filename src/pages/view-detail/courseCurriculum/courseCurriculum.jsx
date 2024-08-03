@@ -7,6 +7,7 @@ import Button1 from "../../../component/buttons/button1/button1";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoLockClosed } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
+import Button2 from "@/component/buttons/button2/button2";
 
 const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
   const [layer1Data, setLayer1Data] = useState();
@@ -134,7 +135,7 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
           >
             {showLayer == "layer3"
               ? // ? ` > ${layer2List.list[layer2Index].title}`
-                `Video's >`
+                tabName == "Full Length Test" ? `Test's` : `Video's >`
               : ""}
           </span>
         </div>
@@ -163,7 +164,13 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
                         <div className="subjectDetails">
                           <p className="m-0 sub_name">{item.title}</p>
                           {item.role == "video" && (
-                            <p className="m-0 sub_topics">class {`10th`}</p>
+                            <p className="m-0 sub_topics">
+                              {tabName == "Full Length Test" ? 
+                                `Starts: 15 May 2024 Ends: 31 Dec 2027`
+                                :
+                                `class 10th`
+                              }
+                              </p>
                           )}
                         </div>
                       </div>
@@ -171,7 +178,13 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
                         <div className="btnsalltbba text-center">
                           {" "}
                           {/* {(isLogin && item.is_locked == "0") || */}
-                          {(value.mrp == 0 ) || (value.mrp != 0 && is_purchased == "1") ? (
+                          {tabName == "Full Length Test" ? 
+                            <Button2 
+                              value="Start Test"
+                              handleWatch = {handleWatch}
+                            />
+                          :
+                          (propsValue?.mrp == 0 ) || (propsValue?.mrp != 0 ) ? (
                             <>
                               <Button1
                                 value="Watch Now"
@@ -182,7 +195,8 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
                             <span className="videoimage text-center">
                               <IoLockClosed />
                             </span>
-                          )}{" "}
+                          )
+                        }
                         </div>
                       </div>
                     </div>

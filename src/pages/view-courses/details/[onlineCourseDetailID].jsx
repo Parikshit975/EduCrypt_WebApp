@@ -52,11 +52,11 @@ const ViewOnlineCourseDetail = () => {
       response_getCourseDetail_service.data,
       token
     );
-    console.log("get_courseDetail", response_getCourseDetail_data);
+    // console.log("get_courseDetail", response_getCourseDetail_data);
     if (response_getCourseDetail_data.status) {
-      setOnlineCourseAry(response_getCourseDetail_data.data.course_detail);
+      setOnlineCourseAry(response_getCourseDetail_data?.data?.course_detail);
       setRelateCourseAry(
-        response_getCourseDetail_data?.data.tiles[0]?.meta.related_courses
+        response_getCourseDetail_data?.data.tiles[0]?.meta?.related_courses
       );
       setPdfData(
         response_getCourseDetail_data?.data?.course_detail?.course_syallbus_pdf

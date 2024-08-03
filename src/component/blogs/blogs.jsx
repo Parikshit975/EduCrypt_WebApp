@@ -19,7 +19,7 @@ const Blogs = () => {
     <div className="container my-5">
         <div className="row">
             <div className="col-12 d-flex align-items-center justify-content-center">
-                <h1 className="m-0 mb-3 main-title">Blogs</h1>
+                <h1 className="m-0 mb-3 main-title">Current Affairs</h1>
             </div>
         </div>
         <div className="row blogSection">
