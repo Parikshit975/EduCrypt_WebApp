@@ -252,7 +252,7 @@ const CourseDetail = ({ value, propsValue, title, relateCourseAry }) => {
               <div className="row">
                   <div>
                   <div className="page-sect-2-title">
-                      <h1 className="head">Similar Courses</h1>
+                      <h1 className="head">Similar {title == "Test Description" ? 'Test Series' : 'Courses'}</h1>
                   </div>
                   <div className="smallline mx-auto mb-3"></div>
                   </div>
