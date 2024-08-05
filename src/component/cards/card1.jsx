@@ -14,7 +14,12 @@ const Card1 = ({value}) => {
     const router = useRouter()
 
     const handleExplore = () => {
-        router.push(`/view-courses/details/${value.id}`);
+        if(value.cat_type == 9){
+            router.push(`/test-series/details/${value.id}`);
+        }
+        else {
+            router.push(`/view-courses/details/${value.id}`);
+        }
     }
 
     const handleBuy = () => {

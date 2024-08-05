@@ -15,6 +15,7 @@ const CourseUrl = 'course/';
 
 export const getCourse_service = async (params) => await axiosClient.post(CourseUrl + 'get_courses', params)
 export const getCourseDetail_Service = async (params) => await axiosClient.post('course_deprecated/get_course_detail' ,params)
+export const getMasterDataService = async (params) => await axiosClient.post(CourseUrl + 'get_master_data', params)
 
 
 // Coupons

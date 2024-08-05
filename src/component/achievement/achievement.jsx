@@ -8,7 +8,14 @@ import { isValidData, encrypt, decrypt } from "../../utils/helpers";
 
 
 const Achievement = () => {
-  
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(true)
+    },1000)
+  })
+    if(isLoading) {
       return (
         <div className="container-fluid p-0 my-4">
           <div className="row">
@@ -43,7 +50,7 @@ const Achievement = () => {
                     </div>
                   </div>
                   <div className="m-0 text-center card video-card">
-                    <img src="assets/images/videos.svg" alt="" className="" />
+                    <img src="assets/images/Videos.svg" alt="" className="" />
                     <div className="card-content">
                       <p className="m-0 video-count">10,000+</p>
                       <h4 className="c_title">Video's</h4>
@@ -69,6 +76,7 @@ const Achievement = () => {
           </div>
         </div>
       );
+    }
 }
  
 

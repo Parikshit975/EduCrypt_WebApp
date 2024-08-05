@@ -20,9 +20,7 @@ const SliderContent = ({freeCourse, title}) => {
     }
 
 
-    
-    if(freeCourse) {
-        return (
+    return (
         <div className="card border-0 shadow b-radius mb-3 p-2 freeCard">
              {<img style={{borderRadius: "10px"}} src={title === "Related Course" ? freeCourse.desc_header_image : freeCourse.cover_image ? freeCourse.cover_image : 'https://picsum.photos/536/354'} className="card-img-top" alt="..." />}
 
@@ -52,11 +50,7 @@ const SliderContent = ({freeCourse, title}) => {
                 
             </div>
         </div>
-        )
-    }
-    else {
-        null
-    }
+    )
 }
 
 export default SliderContent

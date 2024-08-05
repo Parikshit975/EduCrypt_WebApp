@@ -8,6 +8,7 @@ import { isValidData } from '@/utils/helpers';
 
 const Free_Test_Course = () => {
   const [key, setKey] = useState('course');
+  const [isLoading, setIsLoading] = useState(false)
   const CourseData = useSelector((state) => state.allCategory.allCourse);
   const freeCourseAry = isValidData(CourseData) && CourseData?.filter((item) => item.mrp == 0 && item.cat_type == 0)
   const freeTestAry = isValidData(CourseData) && CourseData?.filter((item) => item.mrp == 0 && item.cat_type == 9)

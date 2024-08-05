@@ -13,19 +13,24 @@ import { FaRupeeSign } from "react-icons/fa";
 
 import CourseDetail from "../../view-detail/courseDetail/courseDetail";
 import CourseCurriculum from "../../view-detail/courseCurriculum/courseCurriculum";
-import PDF_Detail from "../../view-detail/PDF_Detail/PDF_Detail";
+import PDF_Detail from "../../../component/PDF_Detail/PDF_Detail";
 import Card3 from "@/component/cards/card3";
 import { getCourseDetail_Service } from "@/services";
 import Button1 from "@/component/buttons/button1/button1";
+import Notes from "@/component/notes/notes";
+import RecordedClass from "@/component/recordedClass/recordedClass";
+import ExamCalender from "@/component/examCalender/ExamCalender";
 
-const tiles = ["Course Detail", "Course Curriculum", "PDF's", "Group Chat"];
+// const tiles = ["Course Detail", "Course Curriculum", "PDF's", "Group Chat"];
 
 const ViewOnlineCourseDetail = () => {
-  const [key, setKey] = useState("Course Detail");
+  const [key, setKey] = useState("Course Overview");
   const [onlineCourseAry, setOnlineCourseAry] = useState("");
   const [relateCourseAry, setRelateCourseAry] = useState("");
+  const [courseDetail, setCourseDetail] = useState("");
   const [pdfData, setPdfData] = useState("");
   const [videoData, setVideoData] = useState("");
+  const [tiles, setTiles] = useState([])
 
   const resetPdfLayerRef = useRef();
   const resetCourseCurriculumLayerRef = useRef();
@@ -61,7 +66,9 @@ const ViewOnlineCourseDetail = () => {
       setPdfData(
         response_getCourseDetail_data?.data?.course_detail?.course_syallbus_pdf
       );
-      console.log("detail", response_getCourseDetail_data);
+      setCourseDetail(response_getCourseDetail_data?.data?.tiles)
+      setTiles(response_getCourseDetail_data?.data?.tiles)
+      console.log("detail", response_getCourseDetail_data?.data?.tiles);
     }
   };
 
@@ -190,35 +197,75 @@ const ViewOnlineCourseDetail = () => {
               onSelect={(k) => handleTabChange(k)}
               className="mb-3 "
             >
-              {tiles.map((item) => (
-                <Tab
-                  eventKey={item}
-                  title={item}
-                  key={item}
-                  propsValue={isValidData(onlineCourseAry) && onlineCourseAry.tiles}
+              {/* <Tab
+                  eventKey={'course Detail'}
+                  title={'course Detail' }
+                  key={'course Detail'}
+                  // propsValue={isValidData(item) && item.tiles}
                 >
-                  {item === "Course Detail" && (
+              </Tab> */}
+              {tiles?.map((item, index) => (
+                // console.log('item', item)
+                item.tile_name !== "Content" && item.tile_name !== "FAQ" &&
+                <Tab
+                  eventKey={item.tile_name}
+                  title={item.tile_name }
+                  key={index}
+                  // propsValue={isValidData(item) && item.tiles}
+                >
+                  {item.tile_name == "Course Overview" &&
                     <CourseDetail
-                      title={item}
-                      value={course_detail}
+                      title={item.tile_name}
+                      courseDetail={courseDetail}
                       propsValue={
                         isValidData(relateCourseAry) && relateCourseAry
                       }
                       relateCourseAry={relateCourseAry}
                     />
-                  )}
-                  {item === "Course Curriculum" && (
+                  }
+                  {/* {item.tile_name === "Course Curriculum" && (
                     <CourseCurriculum
                       resetRef={resetCourseCurriculumLayerRef}
+                      courseDetail={item}
+                      CourseID = {onlineCourseDetailID}
                       tabName={item}
-                      propsValue={isValidData(videoData) && videoData}
+                      // propsValue={isValidData(videoData) && videoData}
                     />
-                  )}
-                  {item === "PDF's" && (
+                  )} */}
+                  {item.tile_name === "Pdf" && (
                     <PDF_Detail
                       resetRef={resetPdfLayerRef}
+                      courseDetail={item}
+                      CourseID = {onlineCourseDetailID}
                       tabName={item}
-                      propsValue={isValidData(pdfData) && pdfData}
+                      // propsValue={isValidData(pdfData) && pdfData}
+                    />
+                  )}
+                  {item.tile_name === "Notes" && (
+                    <Notes
+                      resetRef={resetPdfLayerRef}
+                      courseDetail={item}
+                      CourseID = {onlineCourseDetailID}
+                      tabName={item}
+                      // propsValue={isValidData(pdfData) && pdfData}
+                    />
+                  )}
+                  {item.tile_name === "RECODED CLASS" && (
+                    <RecordedClass
+                      resetRef={resetPdfLayerRef}
+                      courseDetail={item}
+                      CourseID = {onlineCourseDetailID}
+                      tabName={item}
+                      // propsValue={isValidData(pdfData) && pdfData}
+                    />
+                  )}
+                  {item.tile_name === "Exam Calendar" && (
+                    <ExamCalender
+                      resetRef={resetPdfLayerRef}
+                      courseDetail={item}
+                      CourseID = {onlineCourseDetailID}
+                      tabName={item}
+                      // propsValue={isValidData(pdfData) && pdfData}
                     />
                   )}
                 </Tab>

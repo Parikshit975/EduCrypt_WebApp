@@ -12,7 +12,7 @@ import { IoStar } from "react-icons/io5";
 
 import CourseDetail from "./courseDetail/courseDetail";
 import CourseCurriculum from "./courseCurriculum/courseCurriculum";
-import PDF_Detail from "./PDF_Detail/PDF_Detail";
+import PDF_Detail from "../../component/PDF_Detail/PDF_Detail";
 import Card2 from "@/component/cards/card2";
 import { getCourseDetail_Service } from "@/services";
 import { encrypt, decrypt } from "@/utils/helpers";

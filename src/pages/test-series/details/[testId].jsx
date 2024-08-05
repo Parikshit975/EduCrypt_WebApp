@@ -16,13 +16,14 @@ import Tabs from "react-bootstrap/Tabs";
 import CourseDetail from "@/pages/view-detail/courseDetail/courseDetail";
 import CourseCurriculum from "@/pages/view-detail/courseCurriculum/courseCurriculum";
 
-const tiles = ["Test Description", "Full Length Test", "Group Chat"];
+// const tiles = ["Test Description", "Full Length Test", "Group Chat"];
 
 const TestID = () => {
 
-  const [key, setKey] = useState("Test Description");
+  const [key, setKey] = useState("Course Overview");
   const [testAry, setTestAry] = useState(null)
   const [relatedTestAry, setRelatdTestAry] = useState(null);
+  const [tiles, setTiles] = useState([])
   const resetPdfLayerRef = useRef();
   const resetCourseCurriculumLayerRef = useRef();
   const router = useRouter();
@@ -43,12 +44,13 @@ const TestID = () => {
     }
     const response_getTestDetail_service = await getCourseDetail_Service(encrypt(JSON.stringify(formData), token));
     const response_getTestDetail_data = decrypt(response_getTestDetail_service.data, token);
-    console.log('response_getTestDetail_data',response_getTestDetail_data.data);
+    // console.log('response_getTestDetail_data========',response_getTestDetail_data.data);
     if(response_getTestDetail_data.status) {
       setTestAry(response_getTestDetail_data?.data?.course_detail)
       setRelatdTestAry(
-        response_getTestDetail_data?.data.tiles[0]?.meta?.related_courses
+        response_getTestDetail_data?.data?.tiles[0]?.meta?.related_courses
       );
+      setTiles(response_getTestDetail_data?.data?.tiles)
     }
   }
 
@@ -169,24 +171,25 @@ const TestID = () => {
               onSelect={(k) => handleTabChange(k)}
               className="mb-3 "
             >
-              {tiles.map((item) => (
+              {tiles.map((item, index) => (
+                item.tile_name !== "Content" &&
                 <Tab
-                  eventKey={item}
-                  title={item}
-                  key={item}
-                  propsValue={isValidData(testAry) && testAry.tiles}
+                  eventKey={item.tile_name}
+                  title={item.tile_name}
+                  key={index}
+                  propsValue={isValidData(item) && item}
                 >
-                  {item === "Test Description" && (
+                  {item.tile_name == "Course Overview" && (
                     <CourseDetail
-                      title={item}
-                      value={test_detail  }
+                      title={item.tile_name}
+                      courseDetail={tiles }
                       propsValue={
                         isValidData(relatedTestAry) && relatedTestAry
                       }
                       relateCourseAry={relatedTestAry}
                     />
                   )}
-                  {item === "Full Length Test" && (
+                  {item.tile_name === "Full Length Test" && (
                     <CourseCurriculum
                       resetRef={resetCourseCurriculumLayerRef}
                       tabName={item}

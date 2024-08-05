@@ -46,15 +46,15 @@ const FreeContent = ({value, title, onlineCourseDetailID}) => {
 
   return (
     <div className="container">
-      {isLoading ? (
+      {/* {true ? ( */}
         <Slider {...settings}>
           {data.map((item, index) => (
             <SliderContent freeCourse={item} title={title} key={index} />
           ))}
         </Slider>
-      ) : (
+      {/* ) : (
         <div>Loading...</div> // Static fallback content for SSR
-      )}
+      )} */}
     </div>
   );
 };

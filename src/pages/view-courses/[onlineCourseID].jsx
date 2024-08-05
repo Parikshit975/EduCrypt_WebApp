@@ -26,7 +26,7 @@ const OnlineCourse = () => {
     }
   }, [onlineCourseID]);
 
-  console.log('onlineCourseID111', onlineCourseID)
+  // console.log('onlineCourseID111', onlineCourseID)
 
   const fetchCourseDetail = async (onlineCourseID) => {
     const token = get_token();
