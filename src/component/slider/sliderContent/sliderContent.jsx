@@ -4,25 +4,20 @@ import { useRouter } from 'next/router'
 import { IoStar } from "react-icons/io5";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 
-const SliderContent = ({freeCourse, title}) => {
+const SliderContent = ({freeCourse, titleName}) => {
 
     const router = useRouter()
-    // console.log('title111', title)
+    // console.log('title111', titleName)
 
     const handleExplore = () => {
-        console.log("Clicked ==========");
-        if(title == 'course') {
-            router.push(`/view-courses/details/${freeCourse.id}`);
-        }
-        else if(title == 'test'){
-            router.push(`/test-series/details/${freeCourse.id}`);
-        }
+        // console.log("Clicked ==========");
+        router.push(`/view-courses/details/${titleName+':'+freeCourse.id}`);
     }
 
 
     return (
         <div className="card border-0 shadow b-radius mb-3 p-2 freeCard">
-             {<img style={{borderRadius: "10px"}} src={title === "Related Course" ? freeCourse.desc_header_image : freeCourse.cover_image ? freeCourse.cover_image : 'https://picsum.photos/536/354'} className="card-img-top" alt="..." />}
+             {<img style={{borderRadius: "10px"}} src={titleName === "Related Course" ? freeCourse.desc_header_image : freeCourse.cover_image ? freeCourse.cover_image : 'https://picsum.photos/536/354'} className="card-img-top" alt="..." />}
 
             {/* <div className="m-0 free-badge">FREE</div> */}
             <div className="card-body pt-3 px-0 pb-0">

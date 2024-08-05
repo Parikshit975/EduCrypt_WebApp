@@ -26,11 +26,11 @@ const Free_Test_Course = () => {
             className="mb-3 d-flex justify-content-center"
           >
             <Tab eventKey="course" title="Free Courses">
-              {isValidData(freeCourseAry) && <FreeContent value={freeCourseAry} title = {"course"} /> 
+              {isValidData(freeCourseAry) && <FreeContent value={freeCourseAry} titleName = {"course"} /> 
               }
             </Tab>
             <Tab eventKey="test" title="Free Test Series">
-              {isValidData(freeTestAry) && <FreeContent value={freeTestAry} title= {"test"} /> }
+              {isValidData(freeTestAry) && <FreeContent value={freeTestAry} titleName= {"test"} /> }
             </Tab>
           </Tabs>
         </div>

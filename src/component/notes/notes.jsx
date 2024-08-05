@@ -154,11 +154,9 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
                         <div className="btnsalltbba text-center d-flex">
                           {" "}
                           {/* {(isLogin && item.is_locked == "0") || */}
-                          {layer1Data.type == "pdf" ?
-                            <Button1 value="Read" handleClick={handleRead} />
-                            :
-                            <Button1 value="Watch Now" handleClick={handleRead} />
-                          }
+                          {layer1Data.type == "pdf" && <Button1 value="Read" handleClick={handleRead} /> }
+                          {layer1Data.type == "video" && <Button1 value="Watch Now" handleClick={handleRead} />}
+                          
                         </div>
                       </div>
                     </div>

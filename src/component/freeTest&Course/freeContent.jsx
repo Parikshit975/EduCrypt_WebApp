@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 
-const FreeContent = ({value, title, onlineCourseDetailID}) => {
+const FreeContent = ({value, titleName, onlineCourseDetailID}) => {
   const [showSlide, setShowSlide] = useState(4);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(value);
@@ -49,7 +49,7 @@ const FreeContent = ({value, title, onlineCourseDetailID}) => {
       {/* {true ? ( */}
         <Slider {...settings}>
           {data.map((item, index) => (
-            <SliderContent freeCourse={item} title={title} key={index} />
+            <SliderContent freeCourse={item} titleName={titleName} key={index} />
           ))}
         </Slider>
       {/* ) : (

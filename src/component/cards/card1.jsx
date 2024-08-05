@@ -9,22 +9,19 @@ import { useRouter } from 'next/router';
 const content_image = '/assets/images/slideImg.png';
 const content_title = "Selection Hi Jawab Hai Something Special For VCAINS"
 
-const Card1 = ({value}) => {
+const Card1 = ({value, titleName}) => {
 
     const router = useRouter()
 
     const handleExplore = () => {
-        if(value.cat_type == 9){
-            router.push(`/test-series/details/${value.id}`);
-        }
-        else {
-            router.push(`/view-courses/details/${value.id}`);
-        }
+        router.push(`/view-courses/details/${titleName+':'+value.id}`);
     }
 
     const handleBuy = () => {
-        router.push(`/view-courses/course-order/${value.id}`);
+        router.push(`/view-courses/course-order/${titleName+':'+value.id}`);
     }
+
+    console.log('value', titleName)
   return (
             <div className="col-md-3 p-0">
                 <div className="card border-0 shadow b-radius mb-3 mt-2 p-2 course_card m-0">

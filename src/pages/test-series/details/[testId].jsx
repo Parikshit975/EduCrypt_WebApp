@@ -15,6 +15,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import CourseDetail from "@/pages/view-detail/courseDetail/courseDetail";
 import CourseCurriculum from "@/pages/view-detail/courseCurriculum/courseCurriculum";
+import Notes from "@/component/notes/notes";
 
 // const tiles = ["Test Description", "Full Length Test", "Group Chat"];
 
@@ -81,7 +82,9 @@ const TestID = () => {
                   Home
                 </li>
                 {testAry?.mrp != 0 &&
-                  <li className="breadcrumb-item" onClick={() => router.back()}>
+                  <li className="breadcrumb-item" 
+                  // onClick={() => router.back()}
+                  >
                     Test Series
                   </li>
                 }
@@ -172,7 +175,7 @@ const TestID = () => {
               className="mb-3 "
             >
               {tiles.map((item, index) => (
-                item.tile_name !== "Content" &&
+                item.tile_name !== "Content" && item.tile_name !== "FAQ" &&
                 <Tab
                   eventKey={item.tile_name}
                   title={item.tile_name}
@@ -181,7 +184,7 @@ const TestID = () => {
                 >
                   {item.tile_name == "Course Overview" && (
                     <CourseDetail
-                      title={item.tile_name}
+                      title={"Test Description"}
                       courseDetail={tiles }
                       propsValue={
                         isValidData(relatedTestAry) && relatedTestAry
@@ -189,14 +192,21 @@ const TestID = () => {
                       relateCourseAry={relatedTestAry}
                     />
                   )}
-                  {item.tile_name === "Full Length Test" && (
+                  {/* {item.tile_name === "Full Length Test" && (
                     <CourseCurriculum
                       resetRef={resetCourseCurriculumLayerRef}
                       tabName={item}
                       // propsValue={isValidData(videoData) && videoData}
                       value={""}
                     />
-                  )}
+                  )} */}
+                  <Notes
+                      resetRef={resetPdfLayerRef}
+                      courseDetail={item}
+                      CourseID = {testId}
+                      tabName={item}
+                      // propsValue={isValidData(pdfData) && pdfData}
+                    />
                 </Tab>
               ))}
             </Tabs>

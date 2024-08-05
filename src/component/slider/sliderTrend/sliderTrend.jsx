@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import Button2 from '@/component/buttons/button2/button2';
 
 
-const SliderTrend = ({value}) => {
+const SliderTrend = ({value, titleName}) => {
   const [showBtn, setShowBtn] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const router = useRouter()
@@ -16,7 +16,7 @@ const SliderTrend = ({value}) => {
 
   const handleBuy = () => {
     if(value.mrp != 0) {
-      router.push(`/view-courses/details/${value.id}`)
+      router.push(`/view-courses/details/${titleName+':'+value.id}`)
     }
     if(value.mrp == 0) {
       router.push(`/view-courses/${value.id}`)

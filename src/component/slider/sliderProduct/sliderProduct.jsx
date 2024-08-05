@@ -13,7 +13,7 @@ const SliderProduct = ({value}) => {
     return (
       <div className="mb-3 ourProductSection">
         <div className="card" 
-        onClick={() => Router.push(`/view-courses/${value.id}`)}
+          onClick={() => Router.push(`/view-courses/${value.name + ':' +value.id}`)}
         >
             {prod_image1 && <img className="ourProImg" src={prod_image1} alt="" />}
             <a className="m-0 bg_dark p-2 d-flex align-items-center justify-content-between text-decoration-none">

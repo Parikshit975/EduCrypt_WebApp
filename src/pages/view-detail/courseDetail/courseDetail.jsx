@@ -111,7 +111,7 @@ const CourseDetail = ({ courseDetail, propsValue, title, relateCourseAry }) => {
               <div className="mt-4">
                 <FreeContent
                   value={isValidData(relateCourseAry) && relateCourseAry}
-                  title="Related Course"
+                  titleName="Related Course"
                 />
               </div>
             </div>

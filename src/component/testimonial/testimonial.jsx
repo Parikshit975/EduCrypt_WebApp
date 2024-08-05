@@ -40,7 +40,7 @@ const Testimonial = () => {
     const settings = {
         className: "center",
         centerMode: length > 3 ? true : false,
-        infinite: true,
+        infinite: length > 3 ? true : false,
         dots: true,
         centerPadding: "0px",
         slidesToShow: showSlide,
@@ -55,7 +55,7 @@ const Testimonial = () => {
         const response_testimonial_service = await getTestimonialService(formData);
         const testimonial_service_Data = decrypt(response_testimonial_service.data, token)
         if(testimonial_service_Data.status){
-            // console.log('testimonal response', testimonial_service_Data.data.testimonial)
+            console.log('testimonal response', testimonial_service_Data.data.testimonial)
             settestimonial_Ary1(testimonial_service_Data.data.testimonial)
             setLength(testimonial_service_Data.data.testimonial.length)
         }

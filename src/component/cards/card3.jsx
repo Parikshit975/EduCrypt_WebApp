@@ -9,17 +9,17 @@ import { useRouter } from 'next/router';
 const content_image = '/assets/images/slideImg.png';
 const content_title = "Selection Hi Jawab Hai Something Special For VCAINS"
 
-const Card3 = ({value}) => {
+const Card3 = ({value, titleName}) => {
 
     const router = useRouter()
     // console.log('value', value)
 
     const handleExplore = () => {
-        router.push(`/view-courses/details/${value.id}`);
+        router.push(`/view-courses/details/${titleName +':'+value.id}`);
     }
 
     const handleBuy = () => {
-        router.push(`/view-courses/course-order/${value.id}`)
+        router.push(`/view-courses/course-order/${titleName+':'+value.id}`)
     }
 
   return (

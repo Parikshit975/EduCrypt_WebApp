@@ -16,6 +16,7 @@ const TrendingCourses = () => {
     const [isLoading, setIsLoading] = useState(false);
     const CourseData = useSelector((state) => state.allCategory.allCourse)
     const trendCourseAry = isValidData(CourseData) && CourseData.filter((item) => item.extra_json.is_trending == 1)
+    const titleName = "Trending Courses"
 
     useEffect(() => {
         const changeWidth = () => {
@@ -54,7 +55,7 @@ const TrendingCourses = () => {
                 {isValidData(trendCourseAry) ? (
                     <Slider {...settings}>
                         {trendCourseAry.map((item, index) => {
-                            return <SliderTrend value={item} key={index} />
+                            return <SliderTrend value={item} titleName = {titleName} key={index} />
                         })}
                     </Slider>
                 ) : (

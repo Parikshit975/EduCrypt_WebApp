@@ -12,30 +12,36 @@ const OC_image = "/assets/images/OC_title1.png";
 const OnlineCourse = () => {
   const [key, setKey] = useState("Course Detail");
   const [onlineCourse, setOnlineCourse] = useState('')
+  const [id, setId] = useState('');
+  const [titleName, setTitleName] = useState('')
 
   const resetPdfLayerRef = useRef();
   const resetCourseCurriculumLayerRef = useRef();
   const Router = useRouter();
   const { onlineCourseID } = Router.query;
+
+  // const id = onlineCourseID.slice(onlineCourseID.indexOf(':') +1, onlineCourseID.length)
+  // const titleName = onlineCourseID.slice(0, onlineCourseID.indexOf(':'))
   // localStorage.setItem()
 
   useEffect(() => {
     if (onlineCourseID) {
       window.scrollTo(0, 0);
-      fetchCourseDetail(onlineCourseID);
+      fetchCourseDetail(onlineCourseID.slice(onlineCourseID.indexOf(':') +1, onlineCourseID.length));
+      setId(onlineCourseID.slice(onlineCourseID.indexOf(':') +1, onlineCourseID.length))
+      setTitleName(onlineCourseID.slice(0, onlineCourseID.indexOf(':')))
     }
+    
   }, [onlineCourseID]);
 
-  // console.log('onlineCourseID111', onlineCourseID)
-
-  const fetchCourseDetail = async (onlineCourseID) => {
+  const fetchCourseDetail = async (id) => {
     const token = get_token();
     const formData = {
-      'course_type':onlineCourseID,
+      'course_type':id,
       'page':1,
       'sub_cat':1,
       'main_cat':0,
-      // 'course_ids': onlineCourseID
+      // 'course_ids': id
     }
     const response_getCourse_service = await getCourse_service(encrypt(JSON.stringify(formData),token));
     const response_getCourse_data = decrypt(response_getCourse_service.data, token)
@@ -65,13 +71,13 @@ const OnlineCourse = () => {
                   className="breadcrumb-item active"
                   // onClick={() => navigate("/view-courses")}
                 >
-                  All Courses
+                  {titleName}
                 </li>
                 {/* {courseDetails && <li className="breadcrumb-item highlight">{courseDetails.course_detail.title}</li>} */}
               </ol>
             </nav>
             <div className="onlineCourseTitle" style={{marginTop: '35px'}}> 
-              <p className="title">Online Courses</p>
+              <p className="title">{titleName}</p>
               <p className="onlineCourseDetail">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Maiores, neque nihil! Animi nam cum natus neque cumque
@@ -93,7 +99,7 @@ const OnlineCourse = () => {
               <div className="row">
                 {isValidData(onlineCourse) && 
                   onlineCourse.map((item, index) => {
-                    return <Card1 value = {item} key={index} />
+                    return <Card1 value = {item} titleName = {titleName} key={index} />
                   })
                 }
               </div>

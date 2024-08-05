@@ -12,21 +12,27 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 const CourseOrderID = () => {
   const [courseData, setCourseData] = useState("");
   const [couponData, setCouponData] = useState(null);
+  const [id, setId] = useState('');
+  const [titleName, setTitleName] = useState('');
   const router = useRouter();
   const { courseOrderID } = router.query;
+  // const id = courseOrderID.slice(courseOrderID.indexOf(':') +1, courseOrderID.length)
+  // const titleName = courseOrderID.slice(0, courseOrderID.indexOf(':'))
   const token = get_token();
   console.log("courseOrderID", courseOrderID);
   
   useEffect(() => {
     if(courseOrderID) {
-      fetchCouponService(courseOrderID);
-      fetchCourseDetail(courseOrderID);
+      fetchCouponService(courseOrderID.slice(courseOrderID.indexOf(':') +1, courseOrderID.length));
+      fetchCourseDetail(courseOrderID.slice(courseOrderID.indexOf(':') +1, courseOrderID.length));
+      setId(courseOrderID.slice(courseOrderID.indexOf(':') +1, courseOrderID.length))
+      setTitleName(courseOrderID.slice(0, courseOrderID.indexOf(':')))
     }
   }, [courseOrderID]);
 
-  const fetchCouponService = async (courseOrderID) => {
+  const fetchCouponService = async (id) => {
     const formData = {
-      'course_id': courseOrderID
+      'course_id': id
     }
     const response_getCoupon_service = await getCoupon_service(encrypt(JSON.stringify(formData), token));
     const response_getCouponService_data = decrypt(response_getCoupon_service.data, token);
@@ -36,9 +42,9 @@ const CourseOrderID = () => {
     }
   }
 
-  const fetchCourseDetail = async (courseOrderID) => {
+  const fetchCourseDetail = async (id) => {
     const formData = {
-      'course_id': courseOrderID,
+      'course_id': id,
       'page': 1,
     };
     const response_getCourseDetail_service = await getCourseDetail_Service(encrypt(JSON.stringify(formData), token));
@@ -65,7 +71,7 @@ const CourseOrderID = () => {
                 Home
               </li>
               <li className="breadcrumb-item" onClick={() => router.back()}>
-                Online Courses
+                {titleName}
               </li>
               <li
                 className="breadcrumb-item"

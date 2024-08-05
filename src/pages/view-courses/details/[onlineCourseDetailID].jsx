@@ -31,23 +31,30 @@ const ViewOnlineCourseDetail = () => {
   const [pdfData, setPdfData] = useState("");
   const [videoData, setVideoData] = useState("");
   const [tiles, setTiles] = useState([])
+  const [id, setId] = useState('');
+  const [titleName, setTitleName] = useState('')
 
   const resetPdfLayerRef = useRef();
   const resetCourseCurriculumLayerRef = useRef();
   const router = useRouter();
   const { onlineCourseDetailID } = router.query;
+  // console.log('onlineCourseDetailID============', onlineCourseDetailID?.slice(0, onlineCourseDetailID.indexOf(':')))
+  // const id = onlineCourseDetailID?.slice(onlineCourseDetailID.indexOf(':') +1, onlineCourseDetailID.length)
+  // const titleName = onlineCourseDetailID?.slice(0, onlineCourseDetailID.indexOf(':'))
 
   useEffect(() => {
     if (onlineCourseDetailID) {
       window.scrollTo(0, 0);
-      fetchCourseDetail(onlineCourseDetailID);
+      fetchCourseDetail(onlineCourseDetailID?.slice(onlineCourseDetailID.indexOf(':') +1, onlineCourseDetailID.length));
+      setId(onlineCourseDetailID?.slice(onlineCourseDetailID.indexOf(':') +1, onlineCourseDetailID.length));
+      setTitleName(onlineCourseDetailID?.slice(0, onlineCourseDetailID.indexOf(':')))
     }
   }, [onlineCourseDetailID]);
 
-  const fetchCourseDetail = async (onlineCourseDetailID) => {
+  const fetchCourseDetail = async (id) => {
     const token = get_token();
     const formData = {
-      course_id: onlineCourseDetailID,
+      course_id: id,
       page: 1,
     };
     const response_getCourseDetail_service = await getCourseDetail_Service(
@@ -98,7 +105,7 @@ const ViewOnlineCourseDetail = () => {
                 </li>
                 {onlineCourseAry.mrp != 0 && (
                   <li className="breadcrumb-item" onClick={() => router.back()}>
-                    Online Courses
+                    {titleName}
                   </li>
                 )}
                 <li className="breadcrumb-item active">Details</li>
@@ -156,7 +163,7 @@ const ViewOnlineCourseDetail = () => {
                       value={"Buy Now"}
                       handleClick={() =>
                         router.push(
-                          `/view-courses/course-order/${onlineCourseAry.id}`
+                          `/view-courses/course-order/${titleName + ':' +onlineCourseAry.id}`
                         )
                       }
                     />
@@ -180,6 +187,7 @@ const ViewOnlineCourseDetail = () => {
             <div className="courseCard">
               <Card3
                 value={onlineCourseAry}
+                titleName = {titleName}
               />
             </div>
           </div>
@@ -232,7 +240,7 @@ const ViewOnlineCourseDetail = () => {
                       // propsValue={isValidData(videoData) && videoData}
                     />
                   )} */}
-                  {item.tile_name === "Pdf" && (
+                  {/* {item.tile_name === "Pdf" && (
                     <PDF_Detail
                       resetRef={resetPdfLayerRef}
                       courseDetail={item}
@@ -240,8 +248,8 @@ const ViewOnlineCourseDetail = () => {
                       tabName={item}
                       // propsValue={isValidData(pdfData) && pdfData}
                     />
-                  )}
-                  {item.tile_name === "Notes" && (
+                  )} */}
+                  {/* {item.tile_name === "Notes" && ( */}
                     <Notes
                       resetRef={resetPdfLayerRef}
                       courseDetail={item}
@@ -249,25 +257,6 @@ const ViewOnlineCourseDetail = () => {
                       tabName={item}
                       // propsValue={isValidData(pdfData) && pdfData}
                     />
-                  )}
-                  {item.tile_name === "RECODED CLASS" && (
-                    <RecordedClass
-                      resetRef={resetPdfLayerRef}
-                      courseDetail={item}
-                      CourseID = {onlineCourseDetailID}
-                      tabName={item}
-                      // propsValue={isValidData(pdfData) && pdfData}
-                    />
-                  )}
-                  {item.tile_name === "Exam Calendar" && (
-                    <ExamCalender
-                      resetRef={resetPdfLayerRef}
-                      courseDetail={item}
-                      CourseID = {onlineCourseDetailID}
-                      tabName={item}
-                      // propsValue={isValidData(pdfData) && pdfData}
-                    />
-                  )}
                 </Tab>
               ))}
             </Tabs>
