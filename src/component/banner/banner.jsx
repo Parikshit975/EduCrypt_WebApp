@@ -18,7 +18,7 @@ const Banner = () => {
 
 
     return (
-        <div className='container mt-4'>
+        <div className='container px-5 mt-4'>
             <div className="row align-items-center ">
                 <div className={`owl-carousel owl-theme owl_custom owl-loaded owl-drag `}>
                     <Carousel
