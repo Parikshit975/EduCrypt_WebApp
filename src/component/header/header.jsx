@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button1 from '../buttons/button1/button1'
 import { CiSearch } from "react-icons/ci";
 import { useRouter } from 'next/router';
+import LoginModal from '../modal/modal';
 
 const edulogo = '/assets/images/eduLogo.png'
 
 const Header = () => {
 
-  const router = useRouter()
+  const [show, setShow] = useState(false)
+  const router = useRouter();
+
+  const handleShow = () => {
+    setShow(false)
+  }
+
+  const handleClick = () => {
+    setShow(true)
+  }
 
   // const isBrowser = typeof window !== "undefined";
 
   return (
     <>
+      <LoginModal show={show} handleShow = {handleShow} />
       <nav className="px-0 px-sm-5 px-md-5 navbar navbar-expand bg-white" id="eduNav">
           <div className="container-fluid">
               <a className="m-0" href="#">
@@ -32,7 +43,7 @@ const Header = () => {
                   <input type="text" className="d-none d-md-block searchBar"  placeholder="What are you looking for..." aria-label="Username"
                       aria-describedby="basic-addon1" />
               </div>
-                <Button1 value = "Login/Register"/>
+                <Button1 value = "Login/Register" handleClick = {handleClick}/>
           </div>
       </nav>
     </>
