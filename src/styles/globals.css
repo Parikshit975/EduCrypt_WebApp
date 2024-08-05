@@ -20,7 +20,7 @@ html, body{
 .test_container .slick-prev{
     height: 30px !important;
     width: 30px !important;
-    padding: 5px;
+    padding: 7px!important;
     box-shadow: 0px 7px 28px 0px #00000021;
 }
 
@@ -1038,11 +1038,17 @@ input.searchBar {
     font-size: 12px;
     font-weight: 600;
 }
+
 .blog-text{
     color: #393E46;
     font-size: "Reddit Sans",sans-serif;
     font-size: 12px;
     font-weight: 400;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    height: 34px;
 }
 
 .blogBtn .nav-item {
@@ -1068,6 +1074,10 @@ input.searchBar {
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
+}
+
+.testimonial-slider .card{
+    margin: 15px;
 }
 
 /* .testimonial_heading h1 {
@@ -1144,11 +1154,26 @@ input.searchBar {
     margin-top: -23px; 
 }
 
+.slick-dots {
+    position: absolute;
+    bottom: -25px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+}
+
 .slick-dots li{
     border-radius: 50% !important;
-    width: 15px !important;
+    width: 10px !important;
     height: 10px !important;
     background-color: gray !important;
+    transition: .2s ease-in;
 }
 
 .slick-dots li button::before{
@@ -1197,6 +1222,7 @@ input.searchBar {
     top: 10px;
     color: #FFC27A;
     font-size: 30px;
+    width: 30px;
 }
 .p-text p{
     margin: 10px;

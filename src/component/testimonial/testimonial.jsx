@@ -1,8 +1,8 @@
 // pages/testimonial.js
 import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { testimonial_Ary } from '../../../public/assets/sampleArry';
+import * as Icon from "react-bootstrap-icons";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import SliderTestimonial from '../slider/sliderTestimonial/sliderTestimonial';
 import { get_token, TestScreenWidth } from '../../utils/helpers';
 import "slick-carousel/slick/slick.css";
@@ -45,8 +45,8 @@ const Testimonial = () => {
         centerPadding: "0px",
         slidesToShow: showSlide,
         speed: 500,
-        nextArrow: <IoIosArrowForward />,
-        prevArrow: <IoIosArrowBack />,
+        nextArrow: <Icon.ChevronRight />,
+        prevArrow: <Icon.ChevronLeft />,
     };
 
     const fetchTestimonialData = async () => {
@@ -68,7 +68,7 @@ const Testimonial = () => {
                 <h1 class="main-title">Testimonials</h1>
                 {/* <p>Lorem Ipsum is simply dummy text of the printing</p> */}
             </div>
-            <div className='container-fluid'>
+            <div className='container-fluid testimonial-slider'>
                 <Slider {...settings}>
                     { testimonial_Ary1.map((item, index) => {
                         return <SliderTestimonial value={item} key={index} />

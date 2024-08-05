@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SliderContent from "../slider/sliderContent/sliderContent";
 import Slider from "react-slick";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import * as Icon from "react-bootstrap-icons";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { ScreenWidth } from "../../utils/helpers";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -40,8 +41,8 @@ const FreeContent = ({value, titleName, onlineCourseDetailID}) => {
     speed: 500,
     slidesToShow: showSlide,
     slidesToScroll: 1,
-    nextArrow: <IoIosArrowForward />,
-    prevArrow: <IoIosArrowBack />,
+    nextArrow: <Icon.ChevronRight />,
+    prevArrow: <Icon.ChevronLeft />,
   };
 
   return (

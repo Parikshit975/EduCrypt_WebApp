@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 // import { prod_Ary } from "../../../public/assets/sampleArry";
 import SliderProduct from "../slider/sliderProduct/sliderProduct";
 import Slider from "react-slick";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import * as Icon from "react-bootstrap-icons";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { get_token, ProdscreenWidth } from "../../utils/helpers";
 import { useSelector } from "react-redux";
 import { isValidData, encrypt, decrypt } from "../../utils/helpers";
@@ -47,8 +48,8 @@ const OurProduct = ({ value, data }) => {
     speed: 500,
     slidesToScroll: 1,
     slidesToShow: showSlide,
-    nextArrow: <IoIosArrowForward />,
-    prevArrow: <IoIosArrowBack />,
+    nextArrow: <Icon.ChevronRight />,
+    prevArrow: <Icon.ChevronLeft />,
   };
 
   const fetchFaculty = async () => {

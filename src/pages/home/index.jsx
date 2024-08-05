@@ -23,6 +23,7 @@ const index = () => {
       fetchContentData();
       fetchCourseData();
       fetchCurrentAffair();
+      window.scrollTo(0, 0)
     }, 1500);
   }, [])
   

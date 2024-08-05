@@ -11,7 +11,8 @@ const SliderTestimonial = ({value}) => {
     <div className="card p-2 border-0 shadow test-Radius">
         <div className="gap-1 d-flex align-items-center justify-content-start">
             {/* <i className="cardQuotes fas fa-quote-right"></i> */}
-            <ImQuotesRight className='cardQuotes'/>
+            {/* <ImQuotesRight className='cardQuotes'/> */}
+            <img class="cardQuotes" src="assets/images/quote.svg" alt="" />
             <div>
               {value.file && <img className="testImg" src={value.file} alt="" />}
             </div>

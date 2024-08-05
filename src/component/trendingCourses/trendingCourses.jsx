@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-// import { trendCourseAry } from '../../../public/assets/sampleArry';
+import * as Icon from "react-bootstrap-icons";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { ScreenWidth } from '../../utils/helpers';
 import SliderTrend from '../slider/sliderTrend/sliderTrend';
 import "slick-carousel/slick/slick.css";
@@ -41,8 +41,8 @@ const TrendingCourses = () => {
         speed: 500,
         slidesToScroll: 1,
         slidesToShow: showSlide,
-        nextArrow: <IoIosArrowForward />,
-        prevArrow: <IoIosArrowBack />,
+        nextArrow: <Icon.ChevronRight />,
+        prevArrow: <Icon.ChevronLeft />,
     };
 
     return (
