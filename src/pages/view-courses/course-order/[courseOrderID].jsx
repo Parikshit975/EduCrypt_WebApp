@@ -127,7 +127,8 @@ const CourseOrderID = () => {
                             <span className="Price">
                               <FaRupeeSign className="rupeeSign" />
                               <span className="costPrice">
-                                {courseData.course_sp}
+                                {courseData.is_gst == 0 ? Number(courseData.mrp) + Number(courseData.tax): courseData.mrp}
+                                {/* {courseData.course_sp} */}
                               </span>
                             </span>
                             {/* {value.course_sp !== value.mrp && */}
@@ -135,7 +136,8 @@ const CourseOrderID = () => {
                               <span className="offPriceContainer" style={{color: '#A8A8A8'}}>
                                 <span className="offPrice"></span>
                                 <FaRupeeSign className="rupeeSign2" />
-                                {courseData.mrp}
+                                {courseData.course_sp}
+                                {/* {courseData.mrp} */}
                               </span>
                             </>
                             {/* } */}

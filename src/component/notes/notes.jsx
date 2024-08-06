@@ -4,7 +4,8 @@ import { getMasterDataService } from "@/services";
 import { IoIosArrowForward } from "react-icons/io";
 import { decrypt, encrypt, get_token } from "@/utils/helpers";
 
-const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
+const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID,keyValue }) => {
+  // console.log("keyValue",keyValue)
   const [layer1Data, setLayer1Data] = useState();
   const [showLayer, setShowLayer] = useState("layer1");
   const [layer2List, setLayer2List] = useState();
@@ -12,40 +13,82 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
   const [layer2Index, setLayer2Index] = useState();
   const [layer3Data, setLayer3Data] = useState();
   const [id, setId] = useState();
+  const [breadcrumbData, setBreadcrumbData] = useState('');
+  const [breadcrumbData2, setBreadcrumbData2] = useState('');
 
 
   useEffect(() => {
+    console.log("courseDetail 21",courseDetail)
     if (courseDetail) {
       setLayer1Data(courseDetail);
     }
   }, [courseDetail]);
 
-  useEffect(() => {
-    setShowLayer("layer1");
-    return () => setShowLayer("layer1");
-  }, []);
 
-  const getLayer2Data = (index) => {
+  useEffect(() => {
+    if(layer1Data?.revert_api == "0#0#0#0"){
+      // console.log("hell=====================")
+      setShowLayer("layer1");
+      // return () => setShowLayer("layer1");
+    }
+    else if(layer1Data?.revert_api == "0#1#0#0") {
+      getLayer2Data(0);
+    }
+    else if(layer1Data?.revert_api == "0#2#0#0") {
+      setShowLayer("layer1")
+    }
+    else if(layer1Data?.revert_api == "0#3#0#0") {
+      console.log("hell")
+      getLayer3Data(0)
+    }
+
+    return()=>{
+      console.log("testttt")
+    }
+  }, [courseDetail,keyValue]);
+
+  const getLayer2Data = (index, title) => {
+    window.scroll(0,0)
+    setBreadcrumbData(title)
     setLayer1Index(index);
     setShowLayer("layer2");
     setLayer2List(layer1Data.meta?.list[index]);
-    console.log(layer1Data.meta?.list[index]);
+    // console.log(layer1Data.meta?.list[index]);
   };
 
-  const getLayer3Data = async (index) => {
+  const getLayer3Data = async (index, title) => {
+    window.scroll(0,200)
+    setBreadcrumbData2(title)
     setShowLayer("layer3");
     setLayer2Index(index);
-    // console.log(layer1Data, "layer1Data");
-    // console.log(layer2List, "layer 2 Data");
+
+    const subj_id = () => {
+      if(layer1Data.revert_api == "0#1#0#0" || layer1Data.revert_api == "0#3#0#0") {
+        return 0;
+      }
+      else {
+        return layer1Data.meta?.list[index].id
+      }
+    }
+
+    const topi_id = () => {
+      if(layer1Data.revert_api == "0#2#0#0" || layer1Data.revert_api == "0#3#0#0") {
+        return 0;
+      }
+      else {
+        return layer2List.list[index].id;
+      }
+    }
     const data = {
       tile_id: layer1Data.id,
       type: layer1Data.type,
       revert_api: layer1Data.revert_api,
-      topic_id: layer2List.list[index].id,
-      subject_id: layer2List.id,
+      topic_id: topi_id(),
+      subject_id: subj_id(),
       layer: 3,
       page: 1,
     };
+    // console.log('data', data)
     const result = await getDetail(data);   /// Api Call
     // const result = "";
     // console.log('result', result);
@@ -63,7 +106,10 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
       subject_id: data.subject_id,
       layer: data.layer,
       page: data.page,
+      parent_id: ''
+      
     }
+    console.log('formData', formData)
     const response_getMasterData_service = await getMasterDataService(encrypt(JSON.stringify(formData), token))
     const response_getMasterData_Data = decrypt(response_getMasterData_service.data, token);
     console.log('response_getMasterData_Data', response_getMasterData_Data.data)
@@ -77,10 +123,10 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
   };
 
   return (
-    <div className="container p-4 pt-0">
+    <div className="container p-4 pt-0" >
       <section className="p-3 page-section-6">
-        <div className=" custom-breadcrumb">
-          <span
+        <div className=" custom-breadcrumb" >
+          {/* <span
             ref={resetRef}
             className={showLayer == "layer1" ? "breadcrumb" : "breadcrumb"}
             onClick={() => {
@@ -93,19 +139,21 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
               ? // ? ` > ${layer2List.title}`
                 `Subjects >`
               : ""}
-          </span>
+          </span> */}
           <span
             className={
               showLayer == "layer2" ? "active-breadcrumb" : "breadcrumb"
             }
             onClick={() => {
-              setShowLayer("layer2");
+              layer1Data?.revert_api == "0#0#0#0" && setShowLayer("layer1")
+              layer1Data?.revert_api == "0#1#0#0" && setShowLayer("layer2")
+              layer1Data?.revert_api == "0#2#0#0" && setShowLayer("layer2");
             }}
           >
             {/* {(layer2List != undefined && showLayer == "layer2") || */}
-            {showLayer == "layer2" || showLayer == "layer3"
+            {(showLayer == "layer2" || showLayer == "layer3") && breadcrumbData
               ? // ? ` > ${layer2List.title}`
-                `Topics >`
+                `${breadcrumbData} >`
               : ""}
           </span>
           <span
@@ -113,12 +161,14 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
               showLayer == "layer3" ? "active-breadcrumb" : "breadcrumb"
             }
             onClick={() => {
-              setShowLayer("layer3");
+              layer1Data?.revert_api == "0#0#0#0" && setShowLayer("layer2")
+              layer1Data?.revert_api == "0#1#0#0" && setShowLayer("layer2")
+              layer1Data?.revert_api == "0#2#0#0" && setShowLayer("layer1");;
             }}
           >
-            {showLayer == "layer3"
+            {showLayer == "layer3" && breadcrumbData2
               ? // ? ` > ${layer2List.list[layer2Index].title}`
-                `PDF's >`
+                `${breadcrumbData2} >`
               : ""}
           </span>
         </div>
@@ -153,10 +203,18 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
                       <div className="pg-sb-topic pe-2">
                         <div className="btnsalltbba text-center d-flex">
                           {" "}
-                          {/* {(isLogin && item.is_locked == "0") || */}
+                          {
+                          // (isLogin && 
+                          item.is_locked == "1" ? 
+                          <>
+                            <img src="/assets/images/locked.png" alt="" />
+                          </>
+                          :
+                          <>
                           {layer1Data.type == "pdf" && <Button1 value="Read" handleClick={handleRead} /> }
                           {layer1Data.type == "video" && <Button1 value="Watch Now" handleClick={handleRead} />}
-                          
+                          </>
+                          }
                         </div>
                       </div>
                     </div>
@@ -175,7 +233,8 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
             return (
               <div
                 className=" pg-tabs-description mt-3"
-                onClick={() => getLayer3Data(i)}
+                onClick={() => getLayer3Data(i, item.title)}
+                key={i}
               >
                 <div className="tabs-deschovr d-flex align-items-center rounded">
                   <div
@@ -227,9 +286,10 @@ const Notes = ({ propsValue, tabName, resetRef, courseDetail, CourseID }) => {
             return (
               <div
                 className=" pg-tabs-description mt-3"
-                onClick={() => getLayer2Data(i)}
+                onClick={() => layer1Data?.revert_api == "0#2#0#0" ? getLayer3Data(i, item.title) : getLayer2Data(i, item.title)}
                 key={i}
               >
+                {/* {console.log('item.title', item.title)} */}
                 <div className="tabs-deschovr d-flex align-items-center rounded">
                   <div
                     className="pg-sb-topic d-flex align-items-center"

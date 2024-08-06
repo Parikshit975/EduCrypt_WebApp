@@ -34,7 +34,7 @@ const ViewOnlineCourseDetail = () => {
   const [id, setId] = useState('');
   const [titleName, setTitleName] = useState('')
 
-  const resetPdfLayerRef = useRef();
+  const resetLayerRef = useRef();
   const resetCourseCurriculumLayerRef = useRef();
   const router = useRouter();
   const { onlineCourseDetailID } = router.query;
@@ -80,12 +80,11 @@ const ViewOnlineCourseDetail = () => {
   };
 
   const handleTabChange = (k) => {
+    console.log("k 83",k)
     setKey(k);
-    if (resetPdfLayerRef.current) {
-      resetPdfLayerRef.current.click();
-    }
-    if (resetCourseCurriculumLayerRef.current) {
-      resetCourseCurriculumLayerRef.current.click();
+    // console.log('k', k)
+    if (resetLayerRef.current) {
+      resetLayerRef.current.click();
     }
   };
 
@@ -173,11 +172,11 @@ const ViewOnlineCourseDetail = () => {
                   <p className="m-0">
                     <FaRupeeSign className="rupeeSign" />
                     <span className="costPrice">
-                      {onlineCourseAry.course_sp}
+                      {onlineCourseAry.is_gst == 0 ? Number(onlineCourseAry.mrp) + Number(onlineCourseAry.tax): onlineCourseAry.mrp}
                     </span>
                     <span style={{color: '#A8A8A8'}}>
                       <FaRupeeSign className="rupeeSign2" />
-                      {onlineCourseAry.mrp}
+                      {onlineCourseAry.course_sp}
                     </span>
                   </p>
                   <p className="m-0 text-success">{onlineCourseAry.is_gst == 0 ? 'Inclusive of GST' : 'Exclusive of GST'}  </p>
@@ -212,6 +211,7 @@ const ViewOnlineCourseDetail = () => {
                   // propsValue={isValidData(item) && item.tiles}
                 >
               </Tab> */}
+              {console.log("key 214",key)}
               {tiles?.map((item, index) => (
                 // console.log('item', item)
                 item.tile_name !== "Content" && item.tile_name !== "FAQ" &&
@@ -231,30 +231,13 @@ const ViewOnlineCourseDetail = () => {
                       relateCourseAry={relateCourseAry}
                     />
                   }
-                  {/* {item.tile_name === "Course Curriculum" && (
-                    <CourseCurriculum
-                      resetRef={resetCourseCurriculumLayerRef}
-                      courseDetail={item}
-                      CourseID = {onlineCourseDetailID}
-                      tabName={item}
-                      // propsValue={isValidData(videoData) && videoData}
-                    />
-                  )} */}
-                  {/* {item.tile_name === "Pdf" && (
-                    <PDF_Detail
-                      resetRef={resetPdfLayerRef}
-                      courseDetail={item}
-                      CourseID = {onlineCourseDetailID}
-                      tabName={item}
-                      // propsValue={isValidData(pdfData) && pdfData}
-                    />
-                  )} */}
                   {/* {item.tile_name === "Notes" && ( */}
                     <Notes
-                      resetRef={resetPdfLayerRef}
+                      resetRef={resetLayerRef}
                       courseDetail={item}
-                      CourseID = {onlineCourseDetailID}
-                      tabName={item}
+                      CourseID = {id}
+                      tabName={item.tile_name}
+                      keyValue={key}
                       // propsValue={isValidData(pdfData) && pdfData}
                     />
                 </Tab>

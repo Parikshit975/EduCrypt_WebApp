@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const eduLogo1  = '/assets/images/eduLogo1.png'
 const playStoreLogo = '/assets/images/googleStore.png';
@@ -10,6 +12,7 @@ const windowsLogo = '/assets/images/windows.png';
 const Footer = () => {
 
     const [isLoading, setIsLoading] = useState(false)
+    const router = useRouter()
 
     useEffect(() =>{
         setTimeout(() => {
@@ -47,14 +50,14 @@ const Footer = () => {
               <h4 className="m-0 my-3 footTitle">Comapany</h4>
               <ul className="list-unstyled">
                 <li className="mb-2">
-                  <a href="#" className="text-decoration-none">
+                  <Link href="/about" className="text-decoration-none" >
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-2">
-                  <a href="#" className="text-decoration-none">
+                  <Link href="/contact" className="text-decoration-none">
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-2">
                   <a href="#" className="text-decoration-none">

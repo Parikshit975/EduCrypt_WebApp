@@ -12,7 +12,7 @@ const content_title = "Selection Hi Jawab Hai Something Special For VCAINS"
 const Card3 = ({value, titleName}) => {
 
     const router = useRouter()
-    // console.log('value', value)
+    console.log('value', value)
 
     const handleExplore = () => {
         router.push(`/view-courses/details/${titleName +':'+value.id}`);
@@ -51,14 +51,18 @@ const Card3 = ({value, titleName}) => {
                 <div className="coursePriceContainer">
                     <div className="coursePrice d-flex align-items-center pb-2 m-0">
                         <div className='Price'>
-                            <FaRupeeSign className='rupeeSign' /><span className='costPrice'>{value?.course_sp}</span>
+                            <FaRupeeSign className='rupeeSign' />
+                            <span className='costPrice'>
+                                {value.is_gst == 0 ? Number(value.mrp) + Number(value.tax): value.mrp}
+                            </span>
                         </div>
                         {value?.course_sp !== value?.mrp &&
                             <>
                             <div className='offPriceContainer'>
                                 <div className='offPrice'>
                                 </div>
-                                <FaRupeeSign className='rupeeSign2' />{value?.mrp}
+                                <FaRupeeSign className='rupeeSign2' />
+                                {value?.course_sp}
                             </div>
                             <div className='offPricePercentage'>
                                 {value?.discount && `(${value?.discount}% Off)`}

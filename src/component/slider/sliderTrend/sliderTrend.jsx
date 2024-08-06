@@ -32,13 +32,9 @@ const SliderTrend = ({value, titleName}) => {
       >
         <div className="m-0 trendStripe">Best Seller</div>
         {/* {isClient && showBtn && ( */}
-          <div className='explorebtn'>
-            {/* <FaLocationArrow 
-            // onClick={() => navigate(`/explore-course/427`)} 
-            onClick={() => router.push('/explore-course/427', { scroll: false })}
-            /> */}
+          {/* <div className='explorebtn'>
             <Button2 value={"Buy"} handleClick={handleBuy} />
-          </div>
+          </div> */}
         {value.cover_image && (
           <img 
             style={{borderRadius: "10px"}} 

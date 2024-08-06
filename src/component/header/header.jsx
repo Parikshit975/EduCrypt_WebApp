@@ -8,23 +8,26 @@ const edulogo = '/assets/images/eduLogo.png'
 
 const Header = () => {
 
-  const [show, setShow] = useState(false)
+  const [modalShow, setModalShow] = useState(false)
   const router = useRouter();
 
   const handleShow = () => {
-    setShow(false)
+    setModalShow(false)
   }
 
   const handleClick = () => {
-    setShow(true)
+    setModalShow(true)
   }
 
   // const isBrowser = typeof window !== "undefined";
 
   return (
-    <>
-      <LoginModal show={show} handleShow = {handleShow} />
-      <nav className="px-0 px-sm-5 px-md-5 navbar navbar-expand bg-white" id="eduNav">
+    <nav className="px-0 px-sm-5 px-md-5 navbar navbar-expand bg-white" id="eduNav">
+      {/* <LoginModal show={modalShow} handleShow = {handleShow} /> */}
+      <LoginModal 
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
           <div className="container-fluid">
               <a className="m-0" href="#">
                   {edulogo && <img className="logoImg" src={edulogo} alt="" onClick={() => router.push('/')} />}
@@ -38,7 +41,7 @@ const Header = () => {
                       </svg> */}
                       {/* </span> */}
                       <span className="searchIcon d-none d-lg-block input-group-text border-0" id="basic-addon1">
-                        <img src="assets/images/search-icon.svg" alt="" style={{width:"14px"}} />
+                        <img src="assets/images/search-icon.svg" alt="" style={{width:"12px"}} />
                       </span>
                   <input type="text" className="d-none d-md-block searchBar"  placeholder="What are you looking for..." aria-label="Username"
                       aria-describedby="basic-addon1" />
@@ -46,7 +49,6 @@ const Header = () => {
                 <Button1 value = "Login/Register" handleClick = {handleClick}/>
           </div>
       </nav>
-    </>
   )
 }
 

@@ -43,6 +43,43 @@ const TrendingCourses = () => {
         slidesToShow: showSlide,
         nextArrow: <Icon.ChevronRight />,
         prevArrow: <Icon.ChevronLeft />,
+        responsive: [
+            {
+              breakpoint: 1200, // Adjust to your desired breakpoint
+              settings: {
+                slidesToShow: 4, // Number of slides to show at this breakpoint
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1024, // Adjust to your desired breakpoint
+              settings: {
+                slidesToShow: 3, // Number of slides to show at this breakpoint
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 992, // Adjust to your desired breakpoint
+              settings: {
+                slidesToShow: 2, // Number of slides to show at this breakpoint
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 768, // Another breakpoint for smaller screens
+              settings: {
+                slidesToShow: 2, // Number of slides to show at this breakpoint
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 480, // Breakpoint for very small screens
+              settings: {
+                slidesToShow: 1, // Number of slides to show at this breakpoint
+                slidesToScroll: 1,
+              },
+            },
+          ],
     };
 
     return (
